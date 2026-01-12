@@ -119,8 +119,11 @@
         .slide-content {
             width: 100%;
             max-width: 1200px;
-            max-height: calc(100vh - 120px);
-            padding-bottom: 100px; /* Space for navigation */
+            max-height: calc(100vh - 100px);
+            padding-bottom: 70px; /* Space for navigation */
+            display: flex;
+            flex-direction: column;
+            overflow: visible;
         }
 
         /* ========================================
@@ -173,7 +176,7 @@
         ======================================== */
         .nav-container {
             position: fixed;
-            bottom: 20px;
+            bottom: 15px;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
@@ -181,7 +184,7 @@
             gap: 20px;
             z-index: 100;
             background: rgba(15, 22, 41, 0.95);
-            padding: 12px 24px;
+            padding: 10px 20px;
             border-radius: 50px;
             border: 1px solid var(--border-subtle);
             backdrop-filter: blur(20px);
@@ -2329,6 +2332,12 @@
                             <td><span class="check-no">✗</span></td>
                         </tr>
                         <tr>
+                            <td><div class="feature-name">Structured data & database workflows</div>
+                            <div class="feature-desc">Store, analyze, and connect project data relationally</div></td>
+                            <td><span class="check-yes">✓</span></td>
+                            <td><span class="check-no">✗</span></td>
+                        </tr>
+                        <tr>
                             <td><div class="feature-name">Dynamic views and custom fields</div></td>
                             <td><span class="check-yes">✓</span></td>
                             <td><span class="check-partial">Limited</span></td>
@@ -2821,242 +2830,155 @@
         </section>
 
         <!-- ==========================================
-             SLIDE 12: DATA LAKE INTEGRATION (PREMIUM V2)
+             SLIDE 12: DATA LAKE INTEGRATION (FIXED)
         ========================================== -->
         <section class="slide" data-slide="12">
-            <div class="slide-content">
-                <div style="text-align: center; margin-bottom: 5px;">
+            <div class="slide-content" style="justify-content: flex-start; padding-top: 20px;">
+                <div style="text-align: center; margin-bottom: 10px;">
                     <span class="section-badge">Data Architecture</span>
-                    <h2 class="gradient-text">Data Lake Integration</h2>
-                    <p style="margin: 0;">From operational data to enterprise analytics</p>
+                    <h2 class="gradient-text" style="margin-bottom: 5px; font-size: 2rem;">Data Lake Integration</h2>
+                    <p style="margin: 0; font-size: 0.85rem;">From operational data to enterprise analytics</p>
                 </div>
                 
-                <!-- Premium Data Lake Visualization V2 -->
-                <div class="data-lake-premium">
-                    <!-- Left: Data Tables -->
-                    <div class="data-tables-stack">
-                        <div class="data-table-visual t1">
-                            <div class="table-glow"></div>
+                <!-- Main Visualization - Compact -->
+                <div style="display: flex; align-items: center; justify-content: center; gap: 15px; height: 300px;">
+                    
+                    <!-- LEFT: Tables -->
+                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                        <div style="width: 120px; height: 60px; background: linear-gradient(180deg, rgba(30, 50, 80, 0.9), rgba(20, 35, 60, 0.95)); border: 2px solid rgba(45, 127, 249, 0.5); border-radius: 6px; position: relative;">
+                            <div style="position: absolute; top: 0; left: 0; right: 0; height: 14px; background: linear-gradient(90deg, rgba(45, 127, 249, 0.6), rgba(24, 191, 255, 0.5)); border-radius: 4px 4px 0 0;"></div>
+                            <div style="position: absolute; top: 18px; left: 5px; right: 5px; bottom: 5px; background-image: linear-gradient(rgba(45, 127, 249, 0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(45, 127, 249, 0.2) 1px, transparent 1px); background-size: 16px 9px;"></div>
+                            <div style="position: absolute; top: 28px; left: 20px; width: 22px; height: 7px; background: rgba(24, 191, 255, 0.9); border-radius: 2px; box-shadow: 0 0 10px rgba(24, 191, 255, 0.8);"></div>
                         </div>
-                        <div class="data-table-visual t2">
-                            <div class="table-glow"></div>
+                        <div style="width: 120px; height: 60px; background: linear-gradient(180deg, rgba(30, 50, 80, 0.9), rgba(20, 35, 60, 0.95)); border: 2px solid rgba(45, 127, 249, 0.5); border-radius: 6px; position: relative;">
+                            <div style="position: absolute; top: 0; left: 0; right: 0; height: 14px; background: linear-gradient(90deg, rgba(45, 127, 249, 0.6), rgba(24, 191, 255, 0.5)); border-radius: 4px 4px 0 0;"></div>
+                            <div style="position: absolute; top: 18px; left: 5px; right: 5px; bottom: 5px; background-image: linear-gradient(rgba(45, 127, 249, 0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(45, 127, 249, 0.2) 1px, transparent 1px); background-size: 16px 9px;"></div>
+                            <div style="position: absolute; top: 35px; left: 40px; width: 22px; height: 7px; background: rgba(24, 191, 255, 0.9); border-radius: 2px; box-shadow: 0 0 10px rgba(24, 191, 255, 0.8);"></div>
                         </div>
-                        <div class="data-table-visual t3">
-                            <div class="table-glow"></div>
-                        </div>
-                        
-                        <!-- Text Box under tables -->
-                        <div class="data-lake-info-box" style="margin-top: 20px; padding: 16px; background: rgba(24, 191, 255, 0.08); border: 1px solid rgba(24, 191, 255, 0.25); border-radius: 12px; max-width: 200px;">
-                            <div style="font-size: 0.75rem; font-weight: 600; color: #18BFFF; margin-bottom: 10px; letter-spacing: 1px;">
-                                Real-Time Sync → Centralized Storage → Actionable Insights
-                            </div>
-                            <div style="display: flex; flex-direction: column; gap: 6px;">
-                                <div style="display: flex; align-items: center; gap: 8px; font-size: 0.8rem; color: rgba(255,255,255,0.8);">
-                                    <span style="color: #20C997;">✓</span> 60+ tables across 9 bases
-                                </div>
-                                <div style="display: flex; align-items: center; gap: 8px; font-size: 0.8rem; color: rgba(255,255,255,0.8);">
-                                    <span style="color: #20C997;">✓</span> 25,000+ records synced monthly
-                                </div>
-                                <div style="display: flex; align-items: center; gap: 8px; font-size: 0.8rem; color: rgba(255,255,255,0.8);">
-                                    <span style="color: #20C997;">✓</span> Single source of truth
-                                </div>
-                            </div>
+                        <div style="width: 120px; height: 60px; background: linear-gradient(180deg, rgba(30, 50, 80, 0.9), rgba(20, 35, 60, 0.95)); border: 2px solid rgba(45, 127, 249, 0.5); border-radius: 6px; position: relative;">
+                            <div style="position: absolute; top: 0; left: 0; right: 0; height: 14px; background: linear-gradient(90deg, rgba(45, 127, 249, 0.6), rgba(24, 191, 255, 0.5)); border-radius: 4px 4px 0 0;"></div>
+                            <div style="position: absolute; top: 18px; left: 5px; right: 5px; bottom: 5px; background-image: linear-gradient(rgba(45, 127, 249, 0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(45, 127, 249, 0.2) 1px, transparent 1px); background-size: 16px 9px;"></div>
+                            <div style="position: absolute; top: 30px; left: 30px; width: 22px; height: 7px; background: rgba(24, 191, 255, 0.9); border-radius: 2px; box-shadow: 0 0 10px rgba(24, 191, 255, 0.8);"></div>
                         </div>
                     </div>
                     
-                    <!-- Center: Flowing Streams -->
-                    <div class="flow-streams-container">
-                        <svg class="flow-streams-svg" viewBox="0 0 500 400" preserveAspectRatio="none">
-                            <defs>
-                                <!-- Main stream gradient -->
-                                <linearGradient id="streamGradMain" x1="0%" y1="0%" x2="100%" y2="0%">
-                                    <stop offset="0%" stop-color="#18BFFF" stop-opacity="0.9"/>
-                                    <stop offset="50%" stop-color="#2D7FF9" stop-opacity="1"/>
-                                    <stop offset="100%" stop-color="#18BFFF" stop-opacity="0.7"/>
-                                </linearGradient>
-                                
-                                <!-- Strong glow filter -->
-                                <filter id="streamGlow" x="-100%" y="-100%" width="300%" height="300%">
-                                    <feGaussianBlur stdDeviation="6" result="blur"/>
-                                    <feComposite in="SourceGraphic" in2="blur" operator="over"/>
-                                </filter>
-                                
-                                <filter id="particleGlow" x="-200%" y="-200%" width="500%" height="500%">
-                                    <feGaussianBlur stdDeviation="4" result="blur"/>
-                                    <feMerge>
-                                        <feMergeNode in="blur"/>
-                                        <feMergeNode in="blur"/>
-                                        <feMergeNode in="SourceGraphic"/>
-                                    </feMerge>
-                                </filter>
-                            </defs>
-                            
-                            <!-- Stream 1: Top curve -->
-                            <path class="stream-path main" 
-                                  d="M 0 60 C 80 60, 120 80, 180 100 S 280 130, 340 150 Q 400 170, 500 180"
-                                  stroke-dasharray="600" style="animation: stream1Anim 5s ease-in-out infinite;"/>
-                            
-                            <!-- Stream 2: Middle main flow (thicker) -->
-                            <path class="stream-path main" 
-                                  d="M 0 200 C 100 200, 150 210, 220 220 S 320 230, 400 220 Q 450 210, 500 200"
-                                  stroke-dasharray="600" style="stroke-width: 7; animation: stream2Anim 4s ease-in-out infinite;"/>
-                            
-                            <!-- Stream 3: Bottom curve -->
-                            <path class="stream-path main" 
-                                  d="M 0 340 C 80 340, 120 310, 180 280 S 280 240, 340 220 Q 400 200, 500 195"
-                                  stroke-dasharray="600" style="animation: stream3Anim 4.5s ease-in-out infinite;"/>
-                            
-                            <!-- Animated particles on streams -->
-                            <circle class="flow-particle large" r="8" filter="url(#particleGlow)">
-                                <animateMotion dur="4s" repeatCount="indefinite" rotate="auto">
-                                    <mpath href="#motionPath1"/>
-                                </animateMotion>
-                            </circle>
-                            <path id="motionPath1" d="M 0 60 C 80 60, 120 80, 180 100 S 280 130, 340 150 Q 400 170, 500 180" fill="none"/>
-                            
-                            <circle class="flow-particle gold large" r="10" filter="url(#particleGlow)">
-                                <animateMotion dur="3.5s" repeatCount="indefinite" rotate="auto" begin="0.5s">
-                                    <mpath href="#motionPath2"/>
-                                </animateMotion>
-                            </circle>
-                            <path id="motionPath2" d="M 0 200 C 100 200, 150 210, 220 220 S 320 230, 400 220 Q 450 210, 500 200" fill="none"/>
-                            
-                            <circle class="flow-particle" r="7" filter="url(#particleGlow)">
-                                <animateMotion dur="4.2s" repeatCount="indefinite" rotate="auto" begin="1s">
-                                    <mpath href="#motionPath3"/>
-                                </animateMotion>
-                            </circle>
-                            <path id="motionPath3" d="M 0 340 C 80 340, 120 310, 180 280 S 280 240, 340 220 Q 400 200, 500 195" fill="none"/>
-                            
-                            <!-- Extra floating particles -->
-                            <circle class="flow-particle" cx="150" cy="150" r="5" filter="url(#particleGlow)">
-                                <animate attributeName="cx" values="100;200;100" dur="5s" repeatCount="indefinite"/>
-                                <animate attributeName="cy" values="140;170;140" dur="5s" repeatCount="indefinite"/>
-                                <animate attributeName="opacity" values="0;1;1;0" dur="5s" repeatCount="indefinite"/>
-                            </circle>
-                            <circle class="flow-particle gold" cx="300" cy="250" r="6" filter="url(#particleGlow)">
-                                <animate attributeName="cx" values="250;350;250" dur="4s" repeatCount="indefinite"/>
-                                <animate attributeName="cy" values="240;260;240" dur="4s" repeatCount="indefinite"/>
-                                <animate attributeName="opacity" values="0;1;1;0" dur="4s" repeatCount="indefinite"/>
-                            </circle>
-                        </svg>
+                    <!-- CENTER: Flow Lines -->
+                    <svg width="350" height="240" viewBox="0 0 350 240" style="flex-shrink: 0;">
+                        <defs>
+                            <linearGradient id="flowG" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="#18BFFF" stop-opacity="0.9"/>
+                                <stop offset="100%" stop-color="#18BFFF" stop-opacity="0.4"/>
+                            </linearGradient>
+                            <filter id="glowF"><feGaussianBlur stdDeviation="3"/></filter>
+                        </defs>
                         
-                        <style>
-                            @keyframes stream1Anim {
-                                0% { stroke-dashoffset: 600; opacity: 0.7; }
-                                50% { stroke-dashoffset: 0; opacity: 1; }
-                                100% { stroke-dashoffset: -600; opacity: 0.7; }
-                            }
-                            @keyframes stream2Anim {
-                                0% { stroke-dashoffset: 600; opacity: 0.8; }
-                                50% { stroke-dashoffset: 0; opacity: 1; }
-                                100% { stroke-dashoffset: -600; opacity: 0.8; }
-                            }
-                            @keyframes stream3Anim {
-                                0% { stroke-dashoffset: 600; opacity: 0.6; }
-                                50% { stroke-dashoffset: 0; opacity: 1; }
-                                100% { stroke-dashoffset: -600; opacity: 0.6; }
-                            }
-                        </style>
-                    </div>
+                        <!-- Lines -->
+                        <path d="M 0 40 Q 100 40, 175 70 T 350 85" fill="none" stroke="url(#flowG)" stroke-width="3.5" stroke-linecap="round" filter="url(#glowF)"/>
+                        <path d="M 0 120 Q 130 120, 190 120 T 350 115" fill="none" stroke="url(#flowG)" stroke-width="4.5" stroke-linecap="round" filter="url(#glowF)"/>
+                        <path d="M 0 200 Q 100 200, 175 165 T 350 145" fill="none" stroke="url(#flowG)" stroke-width="3.5" stroke-linecap="round" filter="url(#glowF)"/>
+                        
+                        <!-- Particles -->
+                        <circle r="6" fill="#18BFFF" filter="url(#glowF)">
+                            <animateMotion dur="3.5s" repeatCount="indefinite">
+                                <mpath href="#p1"/>
+                            </animateMotion>
+                        </circle>
+                        <path id="p1" d="M 0 40 Q 100 40, 175 70 T 350 85" fill="none"/>
+                        
+                        <circle r="8" fill="#D4A84B" filter="url(#glowF)">
+                            <animateMotion dur="3s" repeatCount="indefinite" begin="0.4s">
+                                <mpath href="#p2"/>
+                            </animateMotion>
+                        </circle>
+                        <path id="p2" d="M 0 120 Q 130 120, 190 120 T 350 115" fill="none"/>
+                        
+                        <circle r="5" fill="#18BFFF" filter="url(#glowF)">
+                            <animateMotion dur="3.8s" repeatCount="indefinite" begin="0.8s">
+                                <mpath href="#p3"/>
+                            </animateMotion>
+                        </circle>
+                        <path id="p3" d="M 0 200 Q 100 200, 175 165 T 350 145" fill="none"/>
+                        
+                        <!-- Floating dots -->
+                        <circle cx="90" cy="85" r="4" fill="#18BFFF" opacity="0.6">
+                            <animate attributeName="opacity" values="0.3;0.9;0.3" dur="2.5s" repeatCount="indefinite"/>
+                        </circle>
+                        <circle cx="220" cy="155" r="4" fill="#D4A84B" opacity="0.7">
+                            <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite"/>
+                        </circle>
+                    </svg>
                     
-                    <!-- Right: Data Lake Bowl -->
-                    <div class="lake-bowl-container">
-                        <!-- Analytics Panel -->
-                        <div class="analytics-cloud">
-                            <div class="chart-bars">
-                                <div class="chart-bar"></div>
-                                <div class="chart-bar"></div>
-                                <div class="chart-bar"></div>
-                                <div class="chart-bar"></div>
-                                <div class="chart-bar"></div>
+                    <!-- RIGHT: Data Lake -->
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
+                        <!-- Analytics bar -->
+                        <div style="display: flex; align-items: center; gap: 8px; padding: 6px 12px; background: rgba(40, 55, 80, 0.95); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 18px;">
+                            <div style="display: flex; align-items: flex-end; gap: 2px; height: 18px;">
+                                <div style="width: 4px; height: 35%; background: linear-gradient(180deg, #4CAF50, #2E7D32); border-radius: 1px;"></div>
+                                <div style="width: 4px; height: 55%; background: linear-gradient(180deg, #2196F3, #1565C0); border-radius: 1px;"></div>
+                                <div style="width: 4px; height: 75%; background: linear-gradient(180deg, #FF9800, #E65100); border-radius: 1px;"></div>
+                                <div style="width: 4px; height: 90%; background: linear-gradient(180deg, #D4A84B, #B8860B); border-radius: 1px;"></div>
+                                <div style="width: 4px; height: 60%; background: linear-gradient(180deg, #9C27B0, #6A1B9A); border-radius: 1px;"></div>
                             </div>
-                            <div class="trend-line-container">
-                                <svg viewBox="0 0 45 25">
-                                    <path d="M 3 20 L 12 14 L 22 17 L 32 6 L 42 10" 
-                                          fill="none" stroke="#D4A84B" stroke-width="2.5" stroke-linecap="round"/>
-                                    <circle cx="42" cy="10" r="3" fill="#D4A84B"/>
-                                </svg>
-                            </div>
-                            <div class="mini-chart">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="#4CAF50" stroke-width="2">
-                                    <rect x="3" y="10" width="4" height="10" rx="1" fill="#4CAF50"/>
-                                    <rect x="10" y="6" width="4" height="14" rx="1" fill="#2196F3"/>
-                                    <rect x="17" y="3" width="4" height="17" rx="1" fill="#FF5722"/>
-                                </svg>
-                            </div>
+                            <svg width="30" height="16" viewBox="0 0 30 16">
+                                <path d="M 2 12 L 8 8 L 14 10 L 20 4 L 28 6" fill="none" stroke="#D4A84B" stroke-width="1.5" stroke-linecap="round"/>
+                                <circle cx="28" cy="6" r="2" fill="#D4A84B"/>
+                            </svg>
+                            <svg width="16" height="16" viewBox="0 0 16 16">
+                                <rect x="1" y="6" width="3" height="8" rx="1" fill="#4CAF50"/>
+                                <rect x="6" y="4" width="3" height="10" rx="1" fill="#2196F3"/>
+                                <rect x="11" y="1" width="3" height="13" rx="1" fill="#FF5722"/>
+                            </svg>
                         </div>
                         
-                        <!-- Lake Bowl SVG -->
-                        <svg class="lake-bowl-svg" viewBox="0 0 300 300">
+                        <!-- Bowl -->
+                        <svg width="190" height="140" viewBox="0 0 190 140">
                             <defs>
-                                <linearGradient id="bowlGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <linearGradient id="bGrad" x1="0%" y1="0%" x2="0%" y2="100%">
                                     <stop offset="0%" stop-color="#18BFFF" stop-opacity="0.15"/>
-                                    <stop offset="40%" stop-color="#2D7FF9" stop-opacity="0.35"/>
+                                    <stop offset="50%" stop-color="#2D7FF9" stop-opacity="0.35"/>
                                     <stop offset="100%" stop-color="#0a1628" stop-opacity="0.9"/>
                                 </linearGradient>
-                                <linearGradient id="bowlStroke" x1="0%" y1="0%" x2="0%" y2="100%">
-                                    <stop offset="0%" stop-color="#18BFFF" stop-opacity="1"/>
+                                <linearGradient id="bStroke" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#18BFFF"/>
                                     <stop offset="100%" stop-color="#2D7FF9" stop-opacity="0.5"/>
                                 </linearGradient>
-                                <filter id="bowlGlow">
-                                    <feGaussianBlur stdDeviation="3" result="blur"/>
-                                    <feMerge>
-                                        <feMergeNode in="blur"/>
-                                        <feMergeNode in="SourceGraphic"/>
-                                    </feMerge>
-                                </filter>
                             </defs>
-                            
-                            <!-- Bowl rim (top ellipse) -->
-                            <ellipse cx="150" cy="80" rx="130" ry="35" 
-                                     fill="none" stroke="url(#bowlStroke)" stroke-width="3" filter="url(#bowlGlow)"/>
-                            
-                            <!-- Bowl body -->
-                            <path d="M 20 80 Q 20 200, 150 230 Q 280 200, 280 80" 
-                                  fill="url(#bowlGrad)" stroke="url(#bowlStroke)" stroke-width="2.5"/>
-                            
-                            <!-- Water surface with waves -->
-                            <ellipse cx="150" cy="90" rx="115" ry="28" fill="rgba(24, 191, 255, 0.1)"/>
-                            
-                            <!-- Animated water ripples -->
-                            <ellipse cx="150" cy="90" rx="100" ry="24" fill="none" stroke="rgba(24, 191, 255, 0.5)" stroke-width="1.5">
-                                <animate attributeName="rx" values="80;110;80" dur="4s" repeatCount="indefinite"/>
-                                <animate attributeName="ry" values="18;26;18" dur="4s" repeatCount="indefinite"/>
-                                <animate attributeName="opacity" values="0.6;0.2;0.6" dur="4s" repeatCount="indefinite"/>
+                            <ellipse cx="95" cy="30" rx="80" ry="22" fill="none" stroke="url(#bStroke)" stroke-width="2"/>
+                            <path d="M 15 30 Q 15 100, 95 115 Q 175 100, 175 30" fill="url(#bGrad)" stroke="url(#bStroke)" stroke-width="1.5"/>
+                            <ellipse cx="95" cy="36" rx="65" ry="15" fill="none" stroke="rgba(24, 191, 255, 0.3)" stroke-width="1">
+                                <animate attributeName="rx" values="50;70;50" dur="3s" repeatCount="indefinite"/>
+                                <animate attributeName="opacity" values="0.5;0.2;0.5" dur="3s" repeatCount="indefinite"/>
                             </ellipse>
-                            <ellipse cx="150" cy="90" rx="70" ry="18" fill="none" stroke="rgba(24, 191, 255, 0.4)" stroke-width="1">
-                                <animate attributeName="rx" values="50;85;50" dur="3.5s" repeatCount="indefinite"/>
-                                <animate attributeName="ry" values="12;22;12" dur="3.5s" repeatCount="indefinite"/>
-                                <animate attributeName="opacity" values="0.5;0.1;0.5" dur="3.5s" repeatCount="indefinite"/>
-                            </ellipse>
-                            <ellipse cx="150" cy="90" rx="45" ry="12" fill="none" stroke="rgba(24, 191, 255, 0.3)" stroke-width="1">
-                                <animate attributeName="rx" values="30;60;30" dur="3s" repeatCount="indefinite"/>
-                                <animate attributeName="ry" values="8;16;8" dur="3s" repeatCount="indefinite"/>
-                                <animate attributeName="opacity" values="0.4;0.1;0.4" dur="3s" repeatCount="indefinite"/>
-                            </ellipse>
-                            
-                            <!-- Inner wave lines -->
-                            <path d="M 50 105 Q 100 95, 150 105 T 250 105" fill="none" stroke="rgba(24, 191, 255, 0.3)" stroke-width="1.5">
-                                <animate attributeName="d" 
-                                         values="M 50 105 Q 100 95, 150 105 T 250 105;M 50 105 Q 100 115, 150 105 T 250 105;M 50 105 Q 100 95, 150 105 T 250 105" 
-                                         dur="3s" repeatCount="indefinite"/>
+                            <path d="M 30 48 Q 60 42, 95 48 T 160 48" fill="none" stroke="rgba(24, 191, 255, 0.25)" stroke-width="1">
+                                <animate attributeName="d" values="M 30 48 Q 60 42, 95 48 T 160 48;M 30 48 Q 60 54, 95 48 T 160 48;M 30 48 Q 60 42, 95 48 T 160 48" dur="2.5s" repeatCount="indefinite"/>
                             </path>
-                            <path d="M 60 125 Q 105 115, 150 125 T 240 125" fill="none" stroke="rgba(24, 191, 255, 0.2)" stroke-width="1">
-                                <animate attributeName="d" 
-                                         values="M 60 125 Q 105 115, 150 125 T 240 125;M 60 125 Q 105 135, 150 125 T 240 125;M 60 125 Q 105 115, 150 125 T 240 125" 
-                                         dur="2.5s" repeatCount="indefinite"/>
-                            </path>
-                            <path d="M 75 145 Q 112 138, 150 145 T 225 145" fill="none" stroke="rgba(24, 191, 255, 0.15)" stroke-width="1">
-                                <animate attributeName="d" 
-                                         values="M 75 145 Q 112 138, 150 145 T 225 145;M 75 145 Q 112 152, 150 145 T 225 145;M 75 145 Q 112 138, 150 145 T 225 145" 
-                                         dur="2.8s" repeatCount="indefinite"/>
-                            </path>
-                            
-                            <!-- Labels -->
-                            <text x="150" y="265" text-anchor="middle" fill="#18BFFF" font-size="16" font-weight="700" letter-spacing="3">DATA LAKE</text>
-                            <text x="150" y="285" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="11">Enterprise Analytics</text>
                         </svg>
+                        
+                        <!-- Label -->
+                        <div style="text-align: center; margin-top: -3px;">
+                            <div style="font-size: 0.8rem; font-weight: 700; color: #18BFFF; letter-spacing: 2px;">DATA LAKE</div>
+                            <div style="font-size: 0.65rem; color: rgba(255,255,255,0.5);">Enterprise Analytics</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bottom Info Bar - FIXED POSITION -->
+                <div style="display: flex; justify-content: center; margin-top: 10px;">
+                    <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 15px; padding: 10px 20px; background: rgba(24, 191, 255, 0.08); border: 1px solid rgba(24, 191, 255, 0.25); border-radius: 10px; max-width: 100%;">
+                        <div style="font-size: 0.7rem; font-weight: 600; color: #18BFFF;">
+                            Real-Time Sync → Centralized Storage → Actionable Insights
+                        </div>
+                        <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
+                            <div style="display: flex; align-items: center; gap: 4px; font-size: 0.7rem; color: rgba(255,255,255,0.85);">
+                                <span style="color: #20C997;">✓</span> 60+ tables
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 4px; font-size: 0.7rem; color: rgba(255,255,255,0.85);">
+                                <span style="color: #20C997;">✓</span> 25K+ records/month
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 4px; font-size: 0.7rem; color: rgba(255,255,255,0.85);">
+                                <span style="color: #20C997;">✓</span> Single source of truth
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
