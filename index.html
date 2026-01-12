@@ -1518,193 +1518,323 @@
         }
 
         /* ========================================
-           DATA LAKE NEURAL NETWORK
-           Inspired by Images 1, 3 - Progressive complexity
+           DATA LAKE FUNNEL VISUALIZATION
+           3D Cone/Funnel flowing down to Data Lake
         ======================================== */
-        .data-lake-visual {
+        .data-funnel-visual {
             position: relative;
             width: 100%;
-            max-width: 900px;
-            height: 400px;
+            max-width: 800px;
+            height: 500px;
             margin: 20px auto;
-            overflow: hidden;
-        }
-
-        /* Neural network layers */
-        .neural-layer {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
             display: flex;
-            flex-direction: column;
-            gap: 20px;
             align-items: center;
+            justify-content: center;
         }
 
-        .neural-layer.l1 { left: 5%; }
-        .neural-layer.l2 { left: 22%; }
-        .neural-layer.l3 { left: 40%; }
-        .neural-layer.l4 { left: 58%; }
-        .neural-layer.l5 { left: 78%; }
-
-        .neural-node {
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            background: var(--cyan-accent);
-            box-shadow: 0 0 12px rgba(24, 191, 255, 0.8);
-            animation: neuralPulse 2s ease-in-out infinite;
+        /* Funnel container with 3D perspective */
+        .funnel-container {
+            position: relative;
+            width: 400px;
+            height: 450px;
+            perspective: 1000px;
         }
 
-        .neural-node.gold {
-            background: #D4A84B;
-            box-shadow: 0 0 12px rgba(212, 168, 75, 0.8);
-        }
-
-        .neural-node.blue {
-            background: #2D7FF9;
-            box-shadow: 0 0 12px rgba(45, 127, 249, 0.8);
-        }
-
-        @keyframes neuralPulse {
-            0%, 100% { opacity: 0.7; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.2); }
-        }
-
-        /* Connection lines */
-        .neural-connections {
+        /* Funnel layers - ellipses stacked */
+        .funnel-ring {
             position: absolute;
-            inset: 0;
-            z-index: 1;
+            left: 50%;
+            transform: translateX(-50%) rotateX(70deg);
+            border: 3px solid;
+            border-radius: 50%;
+            background: transparent;
         }
 
-        .neural-connections svg {
+        /* Ring sizes - from large (top) to small (bottom) */
+        .funnel-ring.r1 {
+            top: 0;
+            width: 350px;
+            height: 100px;
+            border-color: rgba(24, 191, 255, 0.6);
+            box-shadow: 
+                0 0 30px rgba(24, 191, 255, 0.3),
+                inset 0 0 30px rgba(24, 191, 255, 0.1);
+            animation: ringFloat 3s ease-in-out infinite;
+        }
+
+        .funnel-ring.r2 {
+            top: 70px;
+            width: 280px;
+            height: 80px;
+            border-color: rgba(45, 127, 249, 0.6);
+            box-shadow: 
+                0 0 25px rgba(45, 127, 249, 0.3),
+                inset 0 0 25px rgba(45, 127, 249, 0.1);
+            animation: ringFloat 3s ease-in-out infinite 0.3s;
+        }
+
+        .funnel-ring.r3 {
+            top: 130px;
+            width: 220px;
+            height: 65px;
+            border-color: rgba(45, 127, 249, 0.7);
+            box-shadow: 
+                0 0 20px rgba(45, 127, 249, 0.4),
+                inset 0 0 20px rgba(45, 127, 249, 0.15);
+            animation: ringFloat 3s ease-in-out infinite 0.6s;
+        }
+
+        .funnel-ring.r4 {
+            top: 180px;
+            width: 160px;
+            height: 50px;
+            border-color: rgba(24, 191, 255, 0.7);
+            box-shadow: 
+                0 0 15px rgba(24, 191, 255, 0.4),
+                inset 0 0 15px rgba(24, 191, 255, 0.2);
+            animation: ringFloat 3s ease-in-out infinite 0.9s;
+        }
+
+        .funnel-ring.r5 {
+            top: 220px;
+            width: 100px;
+            height: 35px;
+            border-color: rgba(212, 168, 75, 0.8);
+            box-shadow: 
+                0 0 20px rgba(212, 168, 75, 0.5),
+                inset 0 0 15px rgba(212, 168, 75, 0.2);
+            animation: ringFloat 3s ease-in-out infinite 1.2s;
+        }
+
+        @keyframes ringFloat {
+            0%, 100% { transform: translateX(-50%) rotateX(70deg) translateY(0); }
+            50% { transform: translateX(-50%) rotateX(70deg) translateY(-5px); }
+        }
+
+        /* Vertical connection lines */
+        .funnel-lines {
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            height: 220px;
+        }
+
+        .funnel-lines svg {
             width: 100%;
             height: 100%;
         }
 
-        .neural-line {
+        .funnel-line {
             fill: none;
-            stroke: rgba(24, 191, 255, 0.3);
-            stroke-width: 1;
-        }
-
-        .neural-line.highlight {
-            stroke: rgba(24, 191, 255, 0.6);
+            stroke: rgba(24, 191, 255, 0.4);
             stroke-width: 2;
-            animation: neuralFlow 3s linear infinite;
+            stroke-dasharray: 6 4;
+            animation: funnelFlow 2s linear infinite;
         }
 
-        @keyframes neuralFlow {
-            0% { stroke-dasharray: 5 10; stroke-dashoffset: 0; }
-            100% { stroke-dasharray: 5 10; stroke-dashoffset: -30; }
+        @keyframes funnelFlow {
+            to { stroke-dashoffset: -20; }
+        }
+
+        /* Data particles falling through funnel */
+        .funnel-particle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            z-index: 10;
+        }
+
+        .funnel-particle.cyan {
+            background: #18BFFF;
+            box-shadow: 0 0 15px rgba(24, 191, 255, 0.8);
+        }
+
+        .funnel-particle.blue {
+            background: #2D7FF9;
+            box-shadow: 0 0 15px rgba(45, 127, 249, 0.8);
+        }
+
+        .funnel-particle.gold {
+            background: #D4A84B;
+            box-shadow: 0 0 15px rgba(212, 168, 75, 0.8);
+        }
+
+        .funnel-particle.p1 { left: 25%; animation: particleFall1 4s ease-in infinite; }
+        .funnel-particle.p2 { left: 40%; animation: particleFall2 4s ease-in infinite 0.5s; }
+        .funnel-particle.p3 { left: 55%; animation: particleFall3 4s ease-in infinite 1s; }
+        .funnel-particle.p4 { left: 70%; animation: particleFall4 4s ease-in infinite 1.5s; }
+        .funnel-particle.p5 { left: 35%; animation: particleFall5 4s ease-in infinite 2s; }
+        .funnel-particle.p6 { left: 60%; animation: particleFall6 4s ease-in infinite 2.5s; }
+
+        @keyframes particleFall1 {
+            0% { top: -10px; opacity: 0; left: 20%; }
+            10% { opacity: 1; }
+            30% { left: 30%; }
+            60% { left: 45%; }
+            90% { opacity: 1; left: 48%; }
+            100% { top: 280px; opacity: 0; left: 50%; }
+        }
+
+        @keyframes particleFall2 {
+            0% { top: -10px; opacity: 0; left: 45%; }
+            10% { opacity: 1; }
+            60% { left: 48%; }
+            90% { opacity: 1; }
+            100% { top: 280px; opacity: 0; left: 50%; }
+        }
+
+        @keyframes particleFall3 {
+            0% { top: -10px; opacity: 0; left: 60%; }
+            10% { opacity: 1; }
+            30% { left: 55%; }
+            60% { left: 52%; }
+            90% { opacity: 1; left: 50%; }
+            100% { top: 280px; opacity: 0; left: 50%; }
+        }
+
+        @keyframes particleFall4 {
+            0% { top: -10px; opacity: 0; left: 75%; }
+            10% { opacity: 1; }
+            30% { left: 65%; }
+            60% { left: 55%; }
+            90% { opacity: 1; left: 51%; }
+            100% { top: 280px; opacity: 0; left: 50%; }
+        }
+
+        @keyframes particleFall5 {
+            0% { top: -10px; opacity: 0; left: 30%; }
+            10% { opacity: 1; }
+            60% { left: 45%; }
+            90% { opacity: 1; }
+            100% { top: 280px; opacity: 0; left: 50%; }
+        }
+
+        @keyframes particleFall6 {
+            0% { top: -10px; opacity: 0; left: 65%; }
+            10% { opacity: 1; }
+            60% { left: 53%; }
+            90% { opacity: 1; }
+            100% { top: 280px; opacity: 0; left: 50%; }
+        }
+
+        /* Output pipe/stream to Data Lake */
+        .funnel-output {
+            position: absolute;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 120px;
+            background: linear-gradient(180deg, 
+                rgba(212, 168, 75, 0.3) 0%,
+                rgba(24, 191, 255, 0.5) 50%,
+                rgba(45, 127, 249, 0.6) 100%);
+            border-radius: 20px 20px 0 0;
+            overflow: hidden;
+        }
+
+        .funnel-output::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 100%;
+            background: linear-gradient(180deg, 
+                rgba(255, 255, 255, 0.2) 0%,
+                rgba(24, 191, 255, 0.4) 100%);
+            animation: streamPulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes streamPulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
         }
 
         /* Data Lake destination */
-        .data-lake-dest {
+        .funnel-lake {
             position: absolute;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
             width: 180px;
-            height: 280px;
+            height: 80px;
             background: linear-gradient(180deg, 
-                rgba(45, 127, 249, 0.1) 0%,
-                rgba(24, 191, 255, 0.2) 50%,
-                rgba(45, 127, 249, 0.3) 100%);
-            border: 2px solid rgba(24, 191, 255, 0.4);
-            border-radius: 20px;
+                rgba(45, 127, 249, 0.4) 0%,
+                rgba(24, 191, 255, 0.2) 100%);
+            border: 2px solid rgba(24, 191, 255, 0.6);
+            border-radius: 15px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 16px;
-            z-index: 10;
+            gap: 4px;
         }
 
-        .data-lake-dest::before {
+        .funnel-lake::before {
             content: '';
             position: absolute;
-            inset: -10px;
-            border: 1px solid rgba(24, 191, 255, 0.2);
-            border-radius: 25px;
-            animation: lakeRipple 3s ease-out infinite;
+            inset: -8px;
+            border: 1px solid rgba(24, 191, 255, 0.3);
+            border-radius: 20px;
+            animation: lakeGlow 3s ease-out infinite;
         }
 
-        @keyframes lakeRipple {
+        @keyframes lakeGlow {
             0% { transform: scale(1); opacity: 0.5; }
             100% { transform: scale(1.1); opacity: 0; }
         }
 
-        .lake-icon {
-            font-size: 3rem;
+        .lake-icon-funnel {
+            font-size: 1.5rem;
         }
 
-        .lake-label {
-            font-size: 1rem;
+        .lake-text {
+            font-size: 0.8rem;
             font-weight: 700;
             color: var(--cyan-accent);
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
         }
 
-        .lake-sublabel {
-            font-size: 0.75rem;
+        .lake-subtext {
+            font-size: 0.65rem;
             color: var(--text-muted);
         }
 
-        /* Floating data cubes */
-        .data-cube {
+        /* Source labels around top of funnel */
+        .funnel-source {
             position: absolute;
-            width: 30px;
-            height: 30px;
-            background: rgba(45, 127, 249, 0.3);
-            border: 1px solid rgba(45, 127, 249, 0.6);
-            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            z-index: 5;
+        }
+
+        .funnel-source-icon {
+            width: 35px;
+            height: 35px;
+            border-radius: 8px;
+            background: rgba(30, 41, 59, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.8rem;
-            animation: floatCube 6s ease-in-out infinite;
-            z-index: 15;
+            font-size: 1rem;
         }
 
-        .data-cube:nth-child(1) { right: 200px; top: 20%; animation-delay: 0s; }
-        .data-cube:nth-child(2) { right: 220px; top: 40%; animation-delay: 1s; }
-        .data-cube:nth-child(3) { right: 190px; top: 60%; animation-delay: 2s; }
-        .data-cube:nth-child(4) { right: 210px; top: 80%; animation-delay: 3s; }
-
-        @keyframes floatCube {
-            0%, 100% { transform: translateX(0) translateY(0); opacity: 0.6; }
-            25% { transform: translateX(-20px) translateY(-10px); opacity: 1; }
-            50% { transform: translateX(-50px) translateY(0); opacity: 0.8; }
-            75% { transform: translateX(-30px) translateY(10px); opacity: 1; }
-        }
-
-        /* Flow arrow */
-        .flow-arrow {
-            position: absolute;
-            right: 180px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 20;
-        }
-
-        .flow-arrow svg {
-            width: 40px;
-            height: 40px;
-            color: var(--gold-accent);
-            animation: arrowMove 1.5s ease-in-out infinite;
-        }
-
-        @keyframes arrowMove {
-            0%, 100% { transform: translateX(0); opacity: 0.6; }
-            50% { transform: translateX(10px); opacity: 1; }
-        }
+        .funnel-source.fs1 { top: 20px; left: -20px; }
+        .funnel-source.fs2 { top: 20px; right: -20px; flex-direction: row-reverse; }
+        .funnel-source.fs3 { top: 80px; left: -40px; }
+        .funnel-source.fs4 { top: 80px; right: -40px; flex-direction: row-reverse; }
+        .funnel-source.fs5 { top: 140px; left: -30px; }
+        .funnel-source.fs6 { top: 140px; right: -30px; flex-direction: row-reverse; }
 
         /* ========================================
            SCALABILITY VISUALIZATION
@@ -2881,102 +3011,68 @@
                     <p>From operational data to enterprise analytics</p>
                 </div>
                 
-                <!-- Neural Network Data Lake Visualization -->
-                <div class="data-lake-visual">
-                    <!-- Neural connections SVG -->
-                    <svg class="neural-connections" viewBox="0 0 900 400">
-                        <defs>
-                            <linearGradient id="neuralGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                                <stop offset="0%" stop-color="#18BFFF" stop-opacity="0.3"/>
-                                <stop offset="50%" stop-color="#2D7FF9" stop-opacity="0.6"/>
-                                <stop offset="100%" stop-color="#18BFFF" stop-opacity="0.3"/>
-                            </linearGradient>
-                        </defs>
-                        <!-- Layer 1 to 2 connections -->
-                        <line class="neural-line highlight" x1="70" y1="120" x2="180" y2="100"/>
-                        <line class="neural-line" x1="70" y1="120" x2="180" y2="160"/>
-                        <line class="neural-line" x1="70" y1="120" x2="180" y2="220"/>
-                        <line class="neural-line highlight" x1="70" y1="200" x2="180" y2="160"/>
-                        <line class="neural-line" x1="70" y1="200" x2="180" y2="220"/>
-                        <line class="neural-line" x1="70" y1="280" x2="180" y2="220"/>
-                        <line class="neural-line highlight" x1="70" y1="280" x2="180" y2="280"/>
+                <!-- 3D Funnel Data Lake Visualization -->
+                <div class="data-funnel-visual">
+                    <div class="funnel-container">
+                        <!-- Source labels -->
+                        <div class="funnel-source fs1">
+                            <div class="funnel-source-icon">📄</div>
+                            <span>Content</span>
+                        </div>
+                        <div class="funnel-source fs2">
+                            <div class="funnel-source-icon">🏷️</div>
+                            <span>Metadata</span>
+                        </div>
+                        <div class="funnel-source fs3">
+                            <div class="funnel-source-icon">👥</div>
+                            <span>Teams</span>
+                        </div>
+                        <div class="funnel-source fs4">
+                            <div class="funnel-source-icon">📊</div>
+                            <span>Analytics</span>
+                        </div>
+                        <div class="funnel-source fs5">
+                            <div class="funnel-source-icon">🔗</div>
+                            <span>APIs</span>
+                        </div>
+                        <div class="funnel-source fs6">
+                            <div class="funnel-source-icon">⚡</div>
+                            <span>Events</span>
+                        </div>
                         
-                        <!-- Layer 2 to 3 connections -->
-                        <line class="neural-line" x1="200" y1="100" x2="340" y2="80"/>
-                        <line class="neural-line highlight" x1="200" y1="100" x2="340" y2="140"/>
-                        <line class="neural-line" x1="200" y1="160" x2="340" y2="140"/>
-                        <line class="neural-line highlight" x1="200" y1="160" x2="340" y2="200"/>
-                        <line class="neural-line" x1="200" y1="220" x2="340" y2="200"/>
-                        <line class="neural-line" x1="200" y1="220" x2="340" y2="260"/>
-                        <line class="neural-line highlight" x1="200" y1="280" x2="340" y2="260"/>
-                        <line class="neural-line" x1="200" y1="280" x2="340" y2="320"/>
+                        <!-- Funnel rings (3D ellipses) -->
+                        <div class="funnel-ring r1"></div>
+                        <div class="funnel-ring r2"></div>
+                        <div class="funnel-ring r3"></div>
+                        <div class="funnel-ring r4"></div>
+                        <div class="funnel-ring r5"></div>
                         
-                        <!-- Layer 3 to 4 connections -->
-                        <line class="neural-line highlight" x1="360" y1="80" x2="500" y2="120"/>
-                        <line class="neural-line" x1="360" y1="140" x2="500" y2="120"/>
-                        <line class="neural-line" x1="360" y1="140" x2="500" y2="180"/>
-                        <line class="neural-line highlight" x1="360" y1="200" x2="500" y2="180"/>
-                        <line class="neural-line" x1="360" y1="200" x2="500" y2="240"/>
-                        <line class="neural-line highlight" x1="360" y1="260" x2="500" y2="240"/>
-                        <line class="neural-line" x1="360" y1="320" x2="500" y2="300"/>
-                        
-                        <!-- Layer 4 to Lake -->
-                        <line class="neural-line highlight" x1="520" y1="120" x2="680" y2="180" stroke="url(#neuralGrad)" stroke-width="3"/>
-                        <line class="neural-line highlight" x1="520" y1="180" x2="680" y2="200" stroke="url(#neuralGrad)" stroke-width="3"/>
-                        <line class="neural-line highlight" x1="520" y1="240" x2="680" y2="200" stroke="url(#neuralGrad)" stroke-width="3"/>
-                        <line class="neural-line highlight" x1="520" y1="300" x2="680" y2="220" stroke="url(#neuralGrad)" stroke-width="3"/>
-                    </svg>
-                    
-                    <!-- Neural Layer 1 - Input -->
-                    <div class="neural-layer l1">
-                        <div class="neural-node"></div>
-                        <div class="neural-node gold"></div>
-                        <div class="neural-node"></div>
-                    </div>
-                    
-                    <!-- Neural Layer 2 -->
-                    <div class="neural-layer l2">
-                        <div class="neural-node blue"></div>
-                        <div class="neural-node"></div>
-                        <div class="neural-node gold"></div>
-                        <div class="neural-node"></div>
-                    </div>
-                    
-                    <!-- Neural Layer 3 -->
-                    <div class="neural-layer l3">
-                        <div class="neural-node"></div>
-                        <div class="neural-node blue"></div>
-                        <div class="neural-node"></div>
-                        <div class="neural-node gold"></div>
-                        <div class="neural-node"></div>
-                    </div>
-                    
-                    <!-- Neural Layer 4 - Processing -->
-                    <div class="neural-layer l4">
-                        <div class="neural-node blue"></div>
-                        <div class="neural-node"></div>
-                        <div class="neural-node gold"></div>
-                        <div class="neural-node"></div>
-                    </div>
-                    
-                    <!-- Floating data cubes -->
-                    <div class="data-cube">📊</div>
-                    <div class="data-cube">📈</div>
-                    <div class="data-cube">🗄️</div>
-                    <div class="data-cube">📋</div>
-                    
-                    <!-- Flow arrow -->
-                    <div class="flow-arrow">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        <!-- SVG connection lines -->
+                        <svg class="funnel-lines" viewBox="0 0 300 220">
+                            <line class="funnel-line" x1="30" y1="20" x2="150" y2="200"/>
+                            <line class="funnel-line" x1="70" y1="20" x2="150" y2="200"/>
+                            <line class="funnel-line" x1="150" y1="10" x2="150" y2="200"/>
+                            <line class="funnel-line" x1="230" y1="20" x2="150" y2="200"/>
+                            <line class="funnel-line" x1="270" y1="20" x2="150" y2="200"/>
                         </svg>
-                    </div>
-                    
-                    <!-- Data Lake Destination -->
-                    <div class="data-lake-dest">
-                        <div class="lake-icon">🗄️</div>
-                        <div class="lake-label">Data Lake</div>
-                        <div class="lake-sublabel">Enterprise Analytics</div>
+                        
+                        <!-- Falling particles -->
+                        <div class="funnel-particle cyan p1"></div>
+                        <div class="funnel-particle blue p2"></div>
+                        <div class="funnel-particle gold p3"></div>
+                        <div class="funnel-particle cyan p4"></div>
+                        <div class="funnel-particle blue p5"></div>
+                        <div class="funnel-particle gold p6"></div>
+                        
+                        <!-- Output stream -->
+                        <div class="funnel-output"></div>
+                        
+                        <!-- Data Lake destination -->
+                        <div class="funnel-lake">
+                            <div class="lake-icon-funnel">🗄️</div>
+                            <div class="lake-text">Data Lake</div>
+                            <div class="lake-subtext">Enterprise Analytics</div>
+                        </div>
                     </div>
                 </div>
             </div>
