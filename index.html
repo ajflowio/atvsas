@@ -1086,192 +1086,137 @@
         }
 
         /* ========================================
-           SECURITY 3D SHIELD (Images 4-6)
-           Multi-layer 3D perspective shield
+           SECURITY SHIELD - CLEAN VERSION
+           Concentric rounded squares with badge
         ======================================== */
-        .security-3d {
+        .security-visual-clean {
             position: relative;
             width: 100%;
-            max-width: 500px;
-            height: 380px;
+            max-width: 400px;
+            height: 350px;
             margin: 0 auto;
-            perspective: 1000px;
         }
 
-        /* 3D Shield layers container */
-        .shield-3d-container {
+        /* Concentric shield layers */
+        .shield-layers {
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%) rotateX(15deg);
-            transform-style: preserve-3d;
+            transform: translate(-50%, -50%);
             width: 280px;
             height: 280px;
         }
 
-        /* Individual shield layers */
-        .shield-layer-3d {
+        .shield-layer {
             position: absolute;
             top: 50%;
             left: 50%;
-            border-radius: 20px;
+            transform: translate(-50%, -50%);
+            border-radius: 30px;
             border: 3px solid;
-            transform-style: preserve-3d;
+            background: transparent;
         }
 
-        .shield-layer-3d.l1 {
+        .shield-layer.sl1 {
             width: 280px;
             height: 280px;
-            transform: translate(-50%, -50%) translateZ(0px) rotateX(-5deg);
-            border-color: rgba(24, 191, 255, 0.3);
-            background: linear-gradient(180deg, rgba(24, 191, 255, 0.05) 0%, rgba(45, 127, 249, 0.1) 100%);
-            animation: layer3dFloat 4s ease-in-out infinite;
+            border-color: rgba(45, 127, 249, 0.3);
+            background: linear-gradient(180deg, rgba(45, 127, 249, 0.05) 0%, rgba(45, 127, 249, 0.1) 100%);
         }
 
-        .shield-layer-3d.l2 {
-            width: 240px;
-            height: 240px;
-            transform: translate(-50%, -50%) translateZ(20px) rotateX(-5deg);
+        .shield-layer.sl2 {
+            width: 230px;
+            height: 230px;
             border-color: rgba(45, 127, 249, 0.4);
-            background: linear-gradient(180deg, rgba(45, 127, 249, 0.1) 0%, rgba(45, 127, 249, 0.15) 100%);
-            animation: layer3dFloat 4s ease-in-out infinite 0.2s;
+            background: linear-gradient(180deg, rgba(45, 127, 249, 0.08) 0%, rgba(45, 127, 249, 0.12) 100%);
         }
 
-        .shield-layer-3d.l3 {
-            width: 200px;
-            height: 200px;
-            transform: translate(-50%, -50%) translateZ(40px) rotateX(-5deg);
+        .shield-layer.sl3 {
+            width: 180px;
+            height: 180px;
             border-color: rgba(45, 127, 249, 0.5);
-            background: linear-gradient(180deg, rgba(45, 127, 249, 0.15) 0%, rgba(45, 127, 249, 0.2) 100%);
-            animation: layer3dFloat 4s ease-in-out infinite 0.4s;
+            background: linear-gradient(180deg, rgba(45, 127, 249, 0.1) 0%, rgba(45, 127, 249, 0.15) 100%);
         }
 
-        .shield-layer-3d.l4 {
-            width: 160px;
-            height: 160px;
-            transform: translate(-50%, -50%) translateZ(60px) rotateX(-5deg);
-            border-color: rgba(45, 127, 249, 0.6);
-            background: linear-gradient(180deg, rgba(45, 127, 249, 0.2) 0%, rgba(24, 191, 255, 0.25) 100%);
-            animation: layer3dFloat 4s ease-in-out infinite 0.6s;
+        .shield-layer.sl4 {
+            width: 130px;
+            height: 130px;
+            border-color: rgba(24, 191, 255, 0.6);
+            background: linear-gradient(180deg, rgba(24, 191, 255, 0.12) 0%, rgba(24, 191, 255, 0.18) 100%);
         }
 
-        /* Center certification badge */
-        .shield-center-badge {
+        /* Center gold badge */
+        .shield-badge-center {
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%) translateZ(80px);
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(135deg, #D4A84B, #F0C674);
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #D4A84B 0%, #F0C674 50%, #D4A84B 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             box-shadow: 
-                0 0 40px rgba(212, 168, 75, 0.5),
-                inset 0 0 20px rgba(255, 255, 255, 0.3);
-            animation: badgePulse 3s ease-in-out infinite;
+                0 0 40px rgba(212, 168, 75, 0.4),
+                0 0 80px rgba(212, 168, 75, 0.2);
+            z-index: 10;
+            animation: badgeGlow 3s ease-in-out infinite;
         }
 
-        .shield-center-badge svg {
-            width: 50px;
-            height: 50px;
+        .shield-badge-center svg {
+            width: 36px;
+            height: 36px;
             color: #0a0f1a;
         }
 
-        @keyframes layer3dFloat {
-            0%, 100% { transform: translate(-50%, -50%) translateZ(var(--z, 0px)) rotateX(-5deg) rotateY(0deg); }
-            50% { transform: translate(-50%, -50%) translateZ(var(--z, 0px)) rotateX(-8deg) rotateY(3deg); }
+        @keyframes badgeGlow {
+            0%, 100% { box-shadow: 0 0 40px rgba(212, 168, 75, 0.4), 0 0 80px rgba(212, 168, 75, 0.2); }
+            50% { box-shadow: 0 0 60px rgba(212, 168, 75, 0.6), 0 0 100px rgba(212, 168, 75, 0.3); }
         }
 
-        @keyframes badgePulse {
-            0%, 100% { box-shadow: 0 0 40px rgba(212, 168, 75, 0.5); }
-            50% { box-shadow: 0 0 60px rgba(212, 168, 75, 0.8); }
-        }
-
-        /* Data flow streams */
-        .security-stream {
+        /* Corner security nodes */
+        .security-node {
             position: absolute;
-            width: 150px;
-            height: 4px;
-            background: linear-gradient(90deg, transparent, #20C997, transparent);
-            border-radius: 2px;
-            z-index: 20;
-        }
-
-        .security-stream::before {
-            content: '';
-            position: absolute;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 16px;
-            height: 16px;
-            background: #20C997;
-            border-radius: 4px;
-            box-shadow: 0 0 20px rgba(32, 201, 151, 0.8);
-            animation: streamGlow 2s ease-in-out infinite;
-        }
-
-        .security-stream.s1 {
-            top: 20%;
-            left: -30px;
-            transform: rotate(-25deg);
-            animation: streamFlow 3s ease-in-out infinite;
-        }
-
-        .security-stream.s2 {
-            top: 20%;
-            right: -30px;
-            transform: rotate(25deg);
-            animation: streamFlow 3s ease-in-out infinite 0.5s;
-        }
-
-        .security-stream.s3 {
-            bottom: 20%;
-            left: -30px;
-            transform: rotate(25deg);
-            animation: streamFlow 3s ease-in-out infinite 1s;
-        }
-
-        .security-stream.s4 {
-            bottom: 20%;
-            right: -30px;
-            transform: rotate(-25deg);
-            animation: streamFlow 3s ease-in-out infinite 1.5s;
-        }
-
-        @keyframes streamFlow {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 1; }
-        }
-
-        @keyframes streamGlow {
-            0%, 100% { box-shadow: 0 0 20px rgba(32, 201, 151, 0.8); }
-            50% { box-shadow: 0 0 35px rgba(32, 201, 151, 1); }
-        }
-
-        /* Corner certification badges */
-        .corner-cert {
-            position: absolute;
-            width: 50px;
-            height: 50px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
-            background: rgba(10, 15, 26, 0.9);
+            background: rgba(15, 25, 40, 0.95);
             border: 2px solid #D4A84B;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
-            box-shadow: 0 0 15px rgba(212, 168, 75, 0.4);
-            z-index: 25;
+            font-size: 1rem;
+            z-index: 15;
+            box-shadow: 0 0 20px rgba(212, 168, 75, 0.3);
         }
 
-        .corner-cert.ct { top: 5%; left: 50%; transform: translateX(-50%); }
-        .corner-cert.cr { top: 50%; right: 5%; transform: translateY(-50%); }
-        .corner-cert.cb { bottom: 5%; left: 50%; transform: translateX(-50%); }
-        .corner-cert.cl { top: 50%; left: 5%; transform: translateY(-50%); }
+        .security-node.sn1 { top: -10px; left: 50%; transform: translateX(-50%); }
+        .security-node.sn2 { top: 50%; right: -10px; transform: translateY(-50%); }
+        .security-node.sn3 { bottom: -10px; left: 50%; transform: translateX(-50%); }
+        .security-node.sn4 { top: 50%; left: -10px; transform: translateY(-50%); }
+
+        /* Pulsing dots on corners */
+        .pulse-dot {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #20C997;
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(32, 201, 151, 0.8);
+            animation: pulseDot 2s ease-in-out infinite;
+        }
+
+        .pulse-dot.pd1 { top: 30px; right: 30px; animation-delay: 0s; }
+        .pulse-dot.pd2 { bottom: 30px; right: 30px; animation-delay: 0.5s; }
+        .pulse-dot.pd3 { bottom: 30px; left: 30px; animation-delay: 1s; }
+        .pulse-dot.pd4 { top: 30px; left: 30px; animation-delay: 1.5s; }
+
+        @keyframes pulseDot {
+            0%, 100% { transform: scale(1); opacity: 0.6; }
+            50% { transform: scale(1.3); opacity: 1; }
+        }
 
         /* ========================================
            INTEGRATION ECOSYSTEM (Full Version)
@@ -1518,323 +1463,228 @@
         }
 
         /* ========================================
-           DATA LAKE FUNNEL VISUALIZATION
-           3D Cone/Funnel flowing down to Data Lake
+           DATA LAKE - PREMIUM FLOW DESIGN V2
+           Tables → Flowing Streams → Lake Bowl
         ======================================== */
-        .data-funnel-visual {
+        .data-lake-premium {
             position: relative;
             width: 100%;
-            max-width: 800px;
-            height: 500px;
-            margin: 20px auto;
+            height: 420px;
             display: flex;
             align-items: center;
-            justify-content: center;
-        }
-
-        /* Funnel container with 3D perspective */
-        .funnel-container {
-            position: relative;
-            width: 400px;
-            height: 450px;
-            perspective: 1000px;
-        }
-
-        /* Funnel layers - ellipses stacked */
-        .funnel-ring {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%) rotateX(70deg);
-            border: 3px solid;
-            border-radius: 50%;
-            background: transparent;
-        }
-
-        /* Ring sizes - from large (top) to small (bottom) */
-        .funnel-ring.r1 {
-            top: 0;
-            width: 350px;
-            height: 100px;
-            border-color: rgba(24, 191, 255, 0.6);
-            box-shadow: 
-                0 0 30px rgba(24, 191, 255, 0.3),
-                inset 0 0 30px rgba(24, 191, 255, 0.1);
-            animation: ringFloat 3s ease-in-out infinite;
-        }
-
-        .funnel-ring.r2 {
-            top: 70px;
-            width: 280px;
-            height: 80px;
-            border-color: rgba(45, 127, 249, 0.6);
-            box-shadow: 
-                0 0 25px rgba(45, 127, 249, 0.3),
-                inset 0 0 25px rgba(45, 127, 249, 0.1);
-            animation: ringFloat 3s ease-in-out infinite 0.3s;
-        }
-
-        .funnel-ring.r3 {
-            top: 130px;
-            width: 220px;
-            height: 65px;
-            border-color: rgba(45, 127, 249, 0.7);
-            box-shadow: 
-                0 0 20px rgba(45, 127, 249, 0.4),
-                inset 0 0 20px rgba(45, 127, 249, 0.15);
-            animation: ringFloat 3s ease-in-out infinite 0.6s;
-        }
-
-        .funnel-ring.r4 {
-            top: 180px;
-            width: 160px;
-            height: 50px;
-            border-color: rgba(24, 191, 255, 0.7);
-            box-shadow: 
-                0 0 15px rgba(24, 191, 255, 0.4),
-                inset 0 0 15px rgba(24, 191, 255, 0.2);
-            animation: ringFloat 3s ease-in-out infinite 0.9s;
-        }
-
-        .funnel-ring.r5 {
-            top: 220px;
-            width: 100px;
-            height: 35px;
-            border-color: rgba(212, 168, 75, 0.8);
-            box-shadow: 
-                0 0 20px rgba(212, 168, 75, 0.5),
-                inset 0 0 15px rgba(212, 168, 75, 0.2);
-            animation: ringFloat 3s ease-in-out infinite 1.2s;
-        }
-
-        @keyframes ringFloat {
-            0%, 100% { transform: translateX(-50%) rotateX(70deg) translateY(0); }
-            50% { transform: translateX(-50%) rotateX(70deg) translateY(-5px); }
-        }
-
-        /* Vertical connection lines */
-        .funnel-lines {
-            position: absolute;
-            top: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 300px;
-            height: 220px;
-        }
-
-        .funnel-lines svg {
-            width: 100%;
-            height: 100%;
-        }
-
-        .funnel-line {
-            fill: none;
-            stroke: rgba(24, 191, 255, 0.4);
-            stroke-width: 2;
-            stroke-dasharray: 6 4;
-            animation: funnelFlow 2s linear infinite;
-        }
-
-        @keyframes funnelFlow {
-            to { stroke-dashoffset: -20; }
-        }
-
-        /* Data particles falling through funnel */
-        .funnel-particle {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            z-index: 10;
-        }
-
-        .funnel-particle.cyan {
-            background: #18BFFF;
-            box-shadow: 0 0 15px rgba(24, 191, 255, 0.8);
-        }
-
-        .funnel-particle.blue {
-            background: #2D7FF9;
-            box-shadow: 0 0 15px rgba(45, 127, 249, 0.8);
-        }
-
-        .funnel-particle.gold {
-            background: #D4A84B;
-            box-shadow: 0 0 15px rgba(212, 168, 75, 0.8);
-        }
-
-        .funnel-particle.p1 { left: 25%; animation: particleFall1 4s ease-in infinite; }
-        .funnel-particle.p2 { left: 40%; animation: particleFall2 4s ease-in infinite 0.5s; }
-        .funnel-particle.p3 { left: 55%; animation: particleFall3 4s ease-in infinite 1s; }
-        .funnel-particle.p4 { left: 70%; animation: particleFall4 4s ease-in infinite 1.5s; }
-        .funnel-particle.p5 { left: 35%; animation: particleFall5 4s ease-in infinite 2s; }
-        .funnel-particle.p6 { left: 60%; animation: particleFall6 4s ease-in infinite 2.5s; }
-
-        @keyframes particleFall1 {
-            0% { top: -10px; opacity: 0; left: 20%; }
-            10% { opacity: 1; }
-            30% { left: 30%; }
-            60% { left: 45%; }
-            90% { opacity: 1; left: 48%; }
-            100% { top: 280px; opacity: 0; left: 50%; }
-        }
-
-        @keyframes particleFall2 {
-            0% { top: -10px; opacity: 0; left: 45%; }
-            10% { opacity: 1; }
-            60% { left: 48%; }
-            90% { opacity: 1; }
-            100% { top: 280px; opacity: 0; left: 50%; }
-        }
-
-        @keyframes particleFall3 {
-            0% { top: -10px; opacity: 0; left: 60%; }
-            10% { opacity: 1; }
-            30% { left: 55%; }
-            60% { left: 52%; }
-            90% { opacity: 1; left: 50%; }
-            100% { top: 280px; opacity: 0; left: 50%; }
-        }
-
-        @keyframes particleFall4 {
-            0% { top: -10px; opacity: 0; left: 75%; }
-            10% { opacity: 1; }
-            30% { left: 65%; }
-            60% { left: 55%; }
-            90% { opacity: 1; left: 51%; }
-            100% { top: 280px; opacity: 0; left: 50%; }
-        }
-
-        @keyframes particleFall5 {
-            0% { top: -10px; opacity: 0; left: 30%; }
-            10% { opacity: 1; }
-            60% { left: 45%; }
-            90% { opacity: 1; }
-            100% { top: 280px; opacity: 0; left: 50%; }
-        }
-
-        @keyframes particleFall6 {
-            0% { top: -10px; opacity: 0; left: 65%; }
-            10% { opacity: 1; }
-            60% { left: 53%; }
-            90% { opacity: 1; }
-            100% { top: 280px; opacity: 0; left: 50%; }
-        }
-
-        /* Output pipe/stream to Data Lake */
-        .funnel-output {
-            position: absolute;
-            bottom: 80px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 40px;
-            height: 120px;
-            background: linear-gradient(180deg, 
-                rgba(212, 168, 75, 0.3) 0%,
-                rgba(24, 191, 255, 0.5) 50%,
-                rgba(45, 127, 249, 0.6) 100%);
-            border-radius: 20px 20px 0 0;
+            justify-content: space-between;
+            padding: 0 20px;
             overflow: hidden;
         }
 
-        .funnel-output::before {
+        /* Left: Stacked Data Tables */
+        .data-tables-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            flex-shrink: 0;
+            z-index: 10;
+        }
+
+        .data-table-visual {
+            width: 160px;
+            height: 90px;
+            background: linear-gradient(180deg, rgba(30, 50, 80, 0.9) 0%, rgba(20, 35, 60, 0.95) 100%);
+            border: 2px solid rgba(45, 127, 249, 0.5);
+            border-radius: 8px;
+            position: relative;
+            box-shadow: 
+                0 0 20px rgba(45, 127, 249, 0.15),
+                inset 0 0 30px rgba(45, 127, 249, 0.05);
+        }
+
+        /* Table header */
+        .data-table-visual::before {
             content: '';
             position: absolute;
             top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 20px;
-            height: 100%;
-            background: linear-gradient(180deg, 
-                rgba(255, 255, 255, 0.2) 0%,
-                rgba(24, 191, 255, 0.4) 100%);
-            animation: streamPulse 1.5s ease-in-out infinite;
+            left: 0;
+            right: 0;
+            height: 22px;
+            background: linear-gradient(90deg, rgba(45, 127, 249, 0.6), rgba(24, 191, 255, 0.5));
+            border-radius: 6px 6px 0 0;
         }
 
-        @keyframes streamPulse {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 1; }
-        }
-
-        /* Data Lake destination */
-        .funnel-lake {
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 180px;
-            height: 80px;
-            background: linear-gradient(180deg, 
-                rgba(45, 127, 249, 0.4) 0%,
-                rgba(24, 191, 255, 0.2) 100%);
-            border: 2px solid rgba(24, 191, 255, 0.6);
-            border-radius: 15px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 4px;
-        }
-
-        .funnel-lake::before {
+        /* Grid pattern */
+        .data-table-visual::after {
             content: '';
             position: absolute;
-            inset: -8px;
-            border: 1px solid rgba(24, 191, 255, 0.3);
-            border-radius: 20px;
-            animation: lakeGlow 3s ease-out infinite;
+            top: 26px;
+            left: 6px;
+            right: 6px;
+            bottom: 6px;
+            background-image: 
+                linear-gradient(rgba(45, 127, 249, 0.25) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(45, 127, 249, 0.25) 1px, transparent 1px);
+            background-size: 22px 14px;
         }
 
-        @keyframes lakeGlow {
-            0% { transform: scale(1); opacity: 0.5; }
-            100% { transform: scale(1.1); opacity: 0; }
-        }
-
-        .lake-icon-funnel {
-            font-size: 1.5rem;
-        }
-
-        .lake-text {
-            font-size: 0.8rem;
-            font-weight: 700;
-            color: var(--cyan-accent);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .lake-subtext {
-            font-size: 0.65rem;
-            color: var(--text-muted);
-        }
-
-        /* Source labels around top of funnel */
-        .funnel-source {
+        /* Glowing active cell */
+        .table-glow {
             position: absolute;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.75rem;
-            color: var(--text-secondary);
+            width: 30px;
+            height: 12px;
+            background: rgba(24, 191, 255, 0.9);
+            border-radius: 3px;
+            box-shadow: 0 0 20px rgba(24, 191, 255, 0.9), 0 0 40px rgba(24, 191, 255, 0.5);
+            animation: cellPulse 2s ease-in-out infinite;
             z-index: 5;
         }
 
-        .funnel-source-icon {
-            width: 35px;
-            height: 35px;
-            border-radius: 8px;
-            background: rgba(30, 41, 59, 0.9);
+        .t1 .table-glow { top: 38px; left: 35px; }
+        .t2 .table-glow { top: 50px; left: 60px; animation-delay: 0.7s; }
+        .t3 .table-glow { top: 42px; left: 45px; animation-delay: 1.4s; }
+
+        @keyframes cellPulse {
+            0%, 100% { opacity: 0.6; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.05); }
+        }
+
+        /* Center: Flowing Streams SVG - FULL WIDTH */
+        .flow-streams-container {
+            position: absolute;
+            left: 160px;
+            right: 280px;
+            top: 0;
+            bottom: 0;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .flow-streams-svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Stream path styling */
+        .stream-path {
+            fill: none;
+            stroke-linecap: round;
+            filter: url(#streamGlow);
+        }
+
+        .stream-path.main {
+            stroke: url(#streamGradMain);
+            stroke-width: 5;
+            stroke-dasharray: 400;
+            animation: streamFlow 4s ease-in-out infinite;
+        }
+
+        .stream-path.secondary {
+            stroke: rgba(24, 191, 255, 0.6);
+            stroke-width: 3;
+            stroke-dasharray: 300;
+            animation: streamFlow 3.5s ease-in-out infinite;
+        }
+
+        @keyframes streamFlow {
+            0% { stroke-dashoffset: 400; }
+            50% { stroke-dashoffset: 0; }
+            100% { stroke-dashoffset: -400; }
+        }
+
+        /* Particles */
+        .flow-particle {
+            fill: #18BFFF;
+            filter: drop-shadow(0 0 8px rgba(24, 191, 255, 1));
+        }
+
+        .flow-particle.gold {
+            fill: #D4A84B;
+            filter: drop-shadow(0 0 8px rgba(212, 168, 75, 1));
+        }
+
+        .flow-particle.large {
+            filter: drop-shadow(0 0 12px rgba(24, 191, 255, 1)) drop-shadow(0 0 20px rgba(24, 191, 255, 0.5));
+        }
+
+        /* Right: Data Lake Bowl */
+        .lake-bowl-container {
+            position: relative;
+            width: 300px;
+            height: 350px;
+            flex-shrink: 0;
+            z-index: 10;
+        }
+
+        .lake-bowl-svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Analytics floating panel */
+        .analytics-cloud {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 18px;
+            background: rgba(40, 55, 80, 0.95);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+            z-index: 20;
+        }
+
+        /* Chart bars */
+        .chart-bars {
+            display: flex;
+            align-items: flex-end;
+            gap: 4px;
+            height: 28px;
+        }
+
+        .chart-bar {
+            width: 7px;
+            border-radius: 2px;
+            animation: barPulse 2s ease-in-out infinite;
+        }
+
+        .chart-bar:nth-child(1) { height: 35%; background: linear-gradient(180deg, #4CAF50, #2E7D32); }
+        .chart-bar:nth-child(2) { height: 55%; background: linear-gradient(180deg, #2196F3, #1565C0); animation-delay: 0.15s; }
+        .chart-bar:nth-child(3) { height: 75%; background: linear-gradient(180deg, #FF9800, #E65100); animation-delay: 0.3s; }
+        .chart-bar:nth-child(4) { height: 90%; background: linear-gradient(180deg, #D4A84B, #B8860B); animation-delay: 0.45s; }
+        .chart-bar:nth-child(5) { height: 65%; background: linear-gradient(180deg, #9C27B0, #6A1B9A); animation-delay: 0.6s; }
+
+        @keyframes barPulse {
+            0%, 100% { transform: scaleY(1); }
+            50% { transform: scaleY(1.1); }
+        }
+
+        /* Trend line */
+        .trend-line-container {
+            width: 45px;
+            height: 25px;
+        }
+
+        .trend-line-container svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Mini chart icon */
+        .mini-chart {
+            width: 28px;
+            height: 28px;
+            background: rgba(45, 127, 249, 0.2);
+            border-radius: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1rem;
         }
 
-        .funnel-source.fs1 { top: 20px; left: -20px; }
-        .funnel-source.fs2 { top: 20px; right: -20px; flex-direction: row-reverse; }
-        .funnel-source.fs3 { top: 80px; left: -40px; }
-        .funnel-source.fs4 { top: 80px; right: -40px; flex-direction: row-reverse; }
-        .funnel-source.fs5 { top: 140px; left: -30px; }
-        .funnel-source.fs6 { top: 140px; right: -30px; flex-direction: row-reverse; }
+        .mini-chart svg {
+            width: 18px;
+            height: 18px;
+        }
 
         /* ========================================
            SCALABILITY VISUALIZATION
@@ -2189,7 +2039,7 @@
         <section class="slide hero-slide active" data-slide="1">
             <div class="slide-content hero-content">
                 <div class="hero-badge">
-                    Enterprise Comparison Study
+                    Compare Features & Pricing 2025
                 </div>
                 
                 <h1 class="hero-title gradient-text">
@@ -2197,8 +2047,8 @@
                 </h1>
                 
                 <p class="hero-subtitle">
-                    A comprehensive analysis for enterprise multi-team environments.<br>
-                    Discover why Airtable is the strategic choice for modern organizations.
+                    Go beyond task management and enable strategy.<br>
+                    Create a source of truth linking every team's work to company OKRs.
                 </p>
                 
                 <div class="vs-container">
@@ -2213,133 +2063,112 @@
                     </div>
                 </div>
                 
-                <p style="margin-top: 40px; color: var(--text-muted); font-size: 0.9rem;">
-                    Use arrows below or keyboard ← → to navigate
+                <!-- G2 Excellence Points -->
+                <div style="margin-top: 30px; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                    <div style="background: rgba(32, 201, 151, 0.1); border: 1px solid rgba(32, 201, 151, 0.3); padding: 8px 16px; border-radius: 20px; font-size: 0.8rem;">
+                        ✓ Ease of use
+                    </div>
+                    <div style="background: rgba(32, 201, 151, 0.1); border: 1px solid rgba(32, 201, 151, 0.3); padding: 8px 16px; border-radius: 20px; font-size: 0.8rem;">
+                        ✓ Business partnership
+                    </div>
+                    <div style="background: rgba(32, 201, 151, 0.1); border: 1px solid rgba(32, 201, 151, 0.3); padding: 8px 16px; border-radius: 20px; font-size: 0.8rem;">
+                        ✓ Strategy & innovation roadmapping
+                    </div>
+                </div>
+                <p style="margin-top: 10px; color: var(--text-muted); font-size: 0.75rem;">
+                    Based on real user reviews on G2
                 </p>
             </div>
         </section>
 
         <!-- ==========================================
-             SLIDE 2: THE QUESTION
+             SLIDE 2: THE QUESTION - Real Results
         ========================================== -->
         <section class="slide" data-slide="2">
             <div class="slide-content">
-                <span class="section-badge">The Context</span>
-                <h2 class="gradient-text">Why This Comparison?</h2>
+                <span class="section-badge">Proven Results</span>
+                <h2 class="gradient-text">Customers That Use Airtable Report:</h2>
                 
-                <div class="two-col" style="margin-top: 40px;">
-                    <div>
-                        <p style="font-size: 1.1rem; line-height: 1.8;">
-                            In enterprise environments with multiple teams, production workflows, and promotional activities, 
-                            choosing the right platform is <span class="highlight">critical for operational success</span>.
-                        </p>
-                        
-                        <div class="feature-card" style="margin-top: 24px;">
-                            <h3>The Real Question</h3>
-                            <p style="font-size: 1rem; color: var(--text-primary);">
-                                "Should we use <span class="highlight">Airtable</span> or <span style="color: #F06A6A;">Asana</span>?"
-                            </p>
-                            <p>
-                                This question arises when teams are evaluating tools for workflow management, 
-                                especially in complex, data-driven environments.
-                            </p>
-                        </div>
+                <!-- Real Customer Statistics -->
+                <div class="stats-grid" style="margin-top: 40px;">
+                    <div class="stat-card">
+                        <div class="stat-value">5+</div>
+                        <div class="stat-label">Tools Consolidated</div>
+                        <div style="font-size: 0.75rem; color: var(--gold-accent); margin-top: 8px;">TOMS</div>
                     </div>
-                    
-                    <div>
-                        <h3 style="margin-bottom: 20px;">Current Landscape</h3>
-                        <div class="feature-card">
-                            <div class="feature-icon">📊</div>
-                            <div class="feature-title">Teams on Airtable</div>
-                            <div class="feature-desc">Already leveraging data-centric workflows</div>
-                        </div>
-                        <div class="feature-card" style="margin-top: 16px;">
-                            <div class="feature-icon">✓</div>
-                            <div class="feature-title">Teams on Asana</div>
-                            <div class="feature-desc">Using task-focused project management</div>
-                        </div>
-                        <div class="feature-card" style="margin-top: 16px;">
-                            <div class="feature-icon">❓</div>
-                            <div class="feature-title">Teams Deciding</div>
-                            <div class="feature-desc">Evaluating options for their needs</div>
-                        </div>
+                    <div class="stat-card">
+                        <div class="stat-value">400%</div>
+                        <div class="stat-label">Increase in Content Output</div>
+                        <div style="font-size: 0.75rem; color: var(--gold-accent); margin-top: 8px;">Equinox</div>
                     </div>
+                    <div class="stat-card">
+                        <div class="stat-value">12%</div>
+                        <div class="stat-label">Reduction in Operating Costs</div>
+                        <div style="font-size: 0.75rem; color: var(--gold-accent); margin-top: 8px;">Thesis</div>
+                    </div>
+                </div>
+                
+                <div class="verdict-card" style="margin-top: 40px; padding: 30px;">
+                    <p style="margin: 0; font-size: 1.1rem; font-style: italic;">
+                        "Asana manages subtasks. Airtable transforms how you work—connect projects to business data, 
+                        automate across systems, and scale with enterprise governance."
+                    </p>
+                    <p style="margin: 16px 0 0 0; font-size: 0.85rem; color: var(--text-muted);">
+                        — airtable.com/airtable-vs-asana
+                    </p>
                 </div>
             </div>
         </section>
 
         <!-- ==========================================
-             SLIDE 3: PHILOSOPHY
+             SLIDE 3: WHAT SETS AIRTABLE APART (Official)
         ========================================== -->
         <section class="slide" data-slide="3">
             <div class="slide-content">
-                <span class="section-badge">Core Philosophy</span>
-                <h2 class="gradient-text">Different DNA, Different Results</h2>
-                <p style="max-width: 700px;">
-                    Understanding the fundamental difference is key to making the right choice.
-                </p>
+                <span class="section-badge">Key Differentiators</span>
+                <h2 class="gradient-text">What Sets Airtable Apart?</h2>
                 
-                <div class="two-col" style="margin-top: 40px;">
-                    <div class="feature-card" style="border-color: var(--airtable-blue); padding: 32px;">
-                        <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
-                            <div class="platform-icon airtable" style="width: 50px; height: 50px; font-size: 1.2rem;">A</div>
-                            <div>
-                                <h3 style="margin: 0; color: var(--airtable-blue-light);">Airtable</h3>
-                                <span style="font-size: 0.85rem; color: var(--text-muted);">Data-First Platform</span>
-                            </div>
+                <div class="features-grid" style="margin-top: 40px;">
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <div class="feature-title">A Single Source of Truth</div>
+                        <div class="feature-desc">
+                            Airtable provides a single source of truth with customized views for every stakeholder. 
+                            Asana requires teams to work within the same project view.
                         </div>
-                        <p style="font-size: 1.1rem; color: var(--text-primary); margin-bottom: 16px;">
-                            <strong>"Build anything from your data"</strong>
-                        </p>
-                        <ul style="list-style: none; padding: 0;">
-                            <li style="padding: 8px 0; border-bottom: 1px solid var(--border-subtle);">
-                                ✓ Relational database at core
-                            </li>
-                            <li style="padding: 8px 0; border-bottom: 1px solid var(--border-subtle);">
-                                ✓ 40+ field types
-                            </li>
-                            <li style="padding: 8px 0; border-bottom: 1px solid var(--border-subtle);">
-                                ✓ Custom apps & interfaces
-                            </li>
-                            <li style="padding: 8px 0; border-bottom: 1px solid var(--border-subtle);">
-                                ✓ Single source of truth
-                            </li>
-                            <li style="padding: 8px 0;">
-                                ✓ 100M records (HyperDB)
-                            </li>
-                        </ul>
                     </div>
                     
-                    <div class="feature-card" style="opacity: 0.7; padding: 32px;">
-                        <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
-                            <div class="platform-icon asana" style="width: 50px; height: 50px; font-size: 1.2rem;">a</div>
-                            <div>
-                                <h3 style="margin: 0; color: #F06A6A;">Asana</h3>
-                                <span style="font-size: 0.85rem; color: var(--text-muted);">Task-First Platform</span>
-                            </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <div class="feature-title">Complete Portfolio Visibility</div>
+                        <div class="feature-desc">
+                            Unlike Asana, Airtable connects projects to critical business data—products, customers, 
+                            revenue, facilities, people.
                         </div>
-                        <p style="font-size: 1.1rem; color: var(--text-primary); margin-bottom: 16px;">
-                            <strong>"Manage tasks and projects"</strong>
-                        </p>
-                        <ul style="list-style: none; padding: 0;">
-                            <li style="padding: 8px 0; border-bottom: 1px solid var(--border-subtle);">
-                                ○ Task management focus
-                            </li>
-                            <li style="padding: 8px 0; border-bottom: 1px solid var(--border-subtle);">
-                                ○ Limited field types
-                            </li>
-                            <li style="padding: 8px 0; border-bottom: 1px solid var(--border-subtle);">
-                                ○ Fixed project views
-                            </li>
-                            <li style="padding: 8px 0; border-bottom: 1px solid var(--border-subtle);">
-                                ○ Siloed projects
-                            </li>
-                            <li style="padding: 8px 0;">
-                                ○ Standard capacity
-                            </li>
-                        </ul>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🤖</div>
+                        <div class="feature-title">AI That Understands Your Business</div>
+                        <div class="feature-desc">
+                            Built-in AI that goes far beyond generic project management tools by learning 
+                            your specific workflows and data.
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <div class="feature-title">Automation at Scale</div>
+                        <div class="feature-desc">
+                            Customize workflows to each team member's specific needs and sync data 
+                            across every tool in your stack.
+                        </div>
                     </div>
                 </div>
+                
+                <p style="margin-top: 30px; font-size: 0.8rem; color: var(--text-muted); text-align: center;">
+                    Source: airtable.com/airtable-vs-asana
+                </p>
             </div>
         </section>
 
@@ -2458,144 +2287,141 @@
         </section>
 
         <!-- ==========================================
-             SLIDE 5: FEATURE COMPARISON
+             SLIDE 5: FEATURE COMPARISON (OFFICIAL)
         ========================================== -->
         <section class="slide" data-slide="5">
             <div class="slide-content">
-                <span class="section-badge">Feature Comparison</span>
-                <h2 class="gradient-text">Data Management Capabilities</h2>
+                <span class="section-badge">Official Comparison</span>
+                <h2 class="gradient-text">Key Features Comparison</h2>
                 
-                <table class="comparison-table">
+                <table class="comparison-table" style="font-size: 0.85rem;">
                     <thead>
                         <tr>
-                            <th style="width: 35%;">Feature</th>
-                            <th class="airtable-col" style="width: 32.5%;">Airtable</th>
-                            <th class="asana-col" style="width: 32.5%;">Asana</th>
+                            <th style="width: 45%;">Feature</th>
+                            <th class="airtable-col" style="width: 27.5%;">Airtable</th>
+                            <th class="asana-col" style="width: 27.5%;">Asana</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>
-                                <div class="feature-name">Relational Database</div>
-                                <div class="feature-desc">Link records across tables</div>
-                            </td>
-                            <td><span class="check-yes">Full Support</span></td>
-                            <td><span class="check-partial">Limited (Dependencies only)</span></td>
+                            <td><div class="feature-name">Project and task management features</div></td>
+                            <td><span class="check-yes">✓</span></td>
+                            <td><span class="check-yes">✓</span></td>
                         </tr>
                         <tr>
-                            <td>
-                                <div class="feature-name">Field Types</div>
-                                <div class="feature-desc">Data input flexibility</div>
-                            </td>
-                            <td><span class="check-superior">40+ Types</span></td>
-                            <td><span class="check-no">~15 Types</span></td>
+                            <td><div class="feature-name">Work management tools for project and time tracking</div></td>
+                            <td><span class="check-yes">✓</span></td>
+                            <td><span class="check-yes">✓</span></td>
                         </tr>
                         <tr>
-                            <td>
-                                <div class="feature-name">Record Capacity</div>
-                                <div class="feature-desc">Maximum data storage</div>
-                            </td>
-                            <td><span class="check-superior">100M (HyperDB)</span></td>
-                            <td><span class="check-no">Not specified</span></td>
+                            <td><div class="feature-name">Customization options for dependency and resource management</div></td>
+                            <td><span class="check-yes">✓</span></td>
+                            <td><span class="check-yes">✓</span></td>
                         </tr>
                         <tr>
-                            <td>
-                                <div class="feature-name">Custom Views</div>
-                                <div class="feature-desc">Data visualization options</div>
-                            </td>
-                            <td><span class="check-superior">6+ Views + Interfaces</span></td>
-                            <td><span class="check-partial">4 Standard Views</span></td>
+                            <td><div class="feature-name">Built-in AI across workflows</div></td>
+                            <td><span class="check-yes">✓</span></td>
+                            <td><span class="check-no">✗</span></td>
                         </tr>
                         <tr>
-                            <td>
-                                <div class="feature-name">Formulas & Calculations</div>
-                                <div class="feature-desc">Computed fields</div>
-                            </td>
-                            <td><span class="check-yes">Advanced</span></td>
-                            <td><span class="check-partial">Basic</span></td>
+                            <td><div class="feature-name">Relational data management that links and syncs data</div></td>
+                            <td><span class="check-yes">✓</span></td>
+                            <td><span class="check-no">✗</span></td>
                         </tr>
                         <tr>
-                            <td>
-                                <div class="feature-name">API Capabilities</div>
-                                <div class="feature-desc">Integration potential</div>
-                            </td>
-                            <td><span class="check-superior">Full REST API + Webhooks</span></td>
-                            <td><span class="check-yes">REST API</span></td>
+                            <td><div class="feature-name">Dynamic views and custom fields</div></td>
+                            <td><span class="check-yes">✓</span></td>
+                            <td><span class="check-partial">Limited</span></td>
+                        </tr>
+                        <tr>
+                            <td><div class="feature-name">No-code app building with drag-and-drop interfaces</div></td>
+                            <td><span class="check-yes">✓</span></td>
+                            <td><span class="check-no">✗</span></td>
+                        </tr>
+                        <tr>
+                            <td><div class="feature-name">Personalized automation setup</div></td>
+                            <td><span class="check-yes">✓</span></td>
+                            <td><span class="check-partial">Limited</span></td>
+                        </tr>
+                        <tr>
+                            <td><div class="feature-name">Enterprise-grade security and data protection</div></td>
+                            <td><span class="check-yes">✓</span></td>
+                            <td><span class="check-partial">Limited</span></td>
+                        </tr>
+                        <tr>
+                            <td><div class="feature-name">Integrations and API</div></td>
+                            <td><span class="check-yes">✓</span></td>
+                            <td><span class="check-partial">Limited</span></td>
                         </tr>
                     </tbody>
                 </table>
+                <p style="margin-top: 20px; font-size: 0.75rem; color: var(--text-muted); text-align: center;">
+                    Source: airtable.com/airtable-vs-asana
+                </p>
             </div>
         </section>
 
         <!-- ==========================================
-             SLIDE 6: PROJECT MANAGEMENT COMPARISON
+             SLIDE 6: G2 USER REVIEWS (OFFICIAL)
         ========================================== -->
         <section class="slide" data-slide="6">
             <div class="slide-content">
-                <span class="section-badge">Feature Comparison</span>
-                <h2 class="gradient-text">Project & Task Management</h2>
+                <span class="section-badge">Real User Reviews</span>
+                <h2 class="gradient-text">What Airtable Users Say on G2</h2>
                 
-                <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th style="width: 35%;">Feature</th>
-                            <th class="airtable-col" style="width: 32.5%;">Airtable</th>
-                            <th class="asana-col" style="width: 32.5%;">Asana</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <div class="feature-name">Task Management</div>
-                            </td>
-                            <td><span class="check-yes">Full Support</span></td>
-                            <td><span class="check-yes">Core Strength</span></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="feature-name">Subtasks</div>
-                            </td>
-                            <td><span class="check-partial">Via Linked Records</span></td>
-                            <td><span class="check-yes">Native Support</span></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="feature-name">Dependencies</div>
-                            </td>
-                            <td><span class="check-partial">Via Configuration</span></td>
-                            <td><span class="check-yes">Native Support</span></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="feature-name">Timeline / Gantt</div>
-                            </td>
-                            <td><span class="check-yes">Available</span></td>
-                            <td><span class="check-yes">Available</span></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="feature-name">Goals & OKRs</div>
-                            </td>
-                            <td><span class="check-partial">Customizable</span></td>
-                            <td><span class="check-yes">Built-in</span></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="feature-name">Time Tracking</div>
-                            </td>
-                            <td><span class="check-partial">Via Integration</span></td>
-                            <td><span class="check-yes">Built-in</span></td>
-                        </tr>
-                    </tbody>
-                </table>
-                
-                <div class="verdict-card" style="margin-top: 30px; padding: 24px;">
-                    <p style="margin: 0; font-size: 1rem;">
-                        <strong>Key Insight:</strong> While Asana excels at traditional task management, 
-                        Airtable's flexibility allows you to <span class="highlight">build task management AND much more</span> 
-                        within a unified data platform.
-                    </p>
+                <div style="display: flex; flex-direction: column; gap: 24px; margin-top: 40px;">
+                    <!-- Review 1 -->
+                    <div class="feature-card" style="padding: 24px;">
+                        <p style="font-size: 1rem; font-style: italic; line-height: 1.7; margin: 0;">
+                            "For Product Operations management it can't be beat in terms of creating workflows, 
+                            tools for tracking, automations for communication… Milestones work well, and 
+                            <span class="highlight">you can create anything that is in Asana.</span>"
+                        </p>
+                        <div style="margin-top: 16px; display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #2D7FF9, #18BFFF); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">S</div>
+                            <div>
+                                <div style="font-weight: 600;">Stephanie G.</div>
+                                <div style="font-size: 0.8rem; color: var(--text-muted);">Senior Product Operations Manager</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Review 2 -->
+                    <div class="feature-card" style="padding: 24px;">
+                        <p style="font-size: 1rem; font-style: italic; line-height: 1.7; margin: 0;">
+                            "We started off using one of the pre-built templates, but then added tons of features 
+                            and automations to make it work for our entire team… 
+                            <span class="highlight">Airtable is so much more flexible than Asana…</span>"
+                        </p>
+                        <div style="margin-top: 16px; display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #20C997, #18BFFF); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">I</div>
+                            <div>
+                                <div style="font-weight: 600;">Ian M.</div>
+                                <div style="font-size: 0.8rem; color: var(--text-muted);">Social Media Manager</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Review 3 -->
+                    <div class="feature-card" style="padding: 24px;">
+                        <p style="font-size: 1rem; font-style: italic; line-height: 1.7; margin: 0;">
+                            "Airtable can be used as the <span class="highlight">central foundation for storing data</span> 
+                            coming in from different sources… Second most loved feature is the ability to switch between 
+                            multiple data views… It is user friendly to use. It offers great integration libraries."
+                        </p>
+                        <div style="margin-top: 16px; display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #D4A84B, #F0C674); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #0a0f1a;">V</div>
+                            <div>
+                                <div style="font-weight: 600;">Vikas G.</div>
+                                <div style="font-size: 0.8rem; color: var(--text-muted);">Senior Project Manager</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                
+                <p style="margin-top: 24px; font-size: 0.75rem; color: var(--text-muted); text-align: center;">
+                    Source: G2 Reviews via airtable.com/airtable-vs-asana
+                </p>
             </div>
         </section>
 
@@ -2681,59 +2507,59 @@
                         <h2 class="gradient-text">Security & Compliance</h2>
                         <p>Enterprise-grade protection for your data</p>
                         
-                        <div class="security-badges" style="justify-content: flex-start; flex-wrap: wrap; gap: 12px; margin-top: 20px;">
-                            <div class="security-badge" style="padding: 12px 16px;">
-                                <div class="badge-icon" style="width: 40px; height: 40px;">🛡️</div>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 24px;">
+                            <div class="security-badge" style="padding: 16px; text-align: center;">
+                                <div class="badge-icon" style="width: 50px; height: 50px; margin: 0 auto 8px;">🛡️</div>
                                 <div class="badge-name">SOC 2 Type II</div>
-                                <div class="badge-status">✓ Certified</div>
+                                <div class="badge-status">✓ CERTIFIED</div>
                             </div>
-                            <div class="security-badge" style="padding: 12px 16px;">
-                                <div class="badge-icon" style="width: 40px; height: 40px;">🔒</div>
+                            <div class="security-badge" style="padding: 16px; text-align: center;">
+                                <div class="badge-icon" style="width: 50px; height: 50px; margin: 0 auto 8px;">🔒</div>
                                 <div class="badge-name">ISO 27001</div>
-                                <div class="badge-status">✓ Certified</div>
+                                <div class="badge-status">✓ CERTIFIED</div>
                             </div>
-                            <div class="security-badge" style="padding: 12px 16px;">
-                                <div class="badge-icon" style="width: 40px; height: 40px;">🇪🇺</div>
+                            <div class="security-badge" style="padding: 16px; text-align: center;">
+                                <div class="badge-icon" style="width: 50px; height: 50px; margin: 0 auto 8px;">🇪🇺</div>
                                 <div class="badge-name">GDPR</div>
-                                <div class="badge-status">✓ Compliant</div>
+                                <div class="badge-status">✓ COMPLIANT</div>
                             </div>
-                            <div class="security-badge" style="padding: 12px 16px;">
-                                <div class="badge-icon" style="width: 40px; height: 40px;">🔐</div>
+                            <div class="security-badge" style="padding: 16px; text-align: center;">
+                                <div class="badge-icon" style="width: 50px; height: 50px; margin: 0 auto 8px;">🔐</div>
                                 <div class="badge-name">ISO 27701</div>
-                                <div class="badge-status">✓ Certified</div>
+                                <div class="badge-status">✓ CERTIFIED</div>
                             </div>
                         </div>
                     </div>
                     
                     <div>
-                        <!-- 3D Security Shield Visualization -->
-                        <div class="security-3d">
-                            <!-- Data streams -->
-                            <div class="security-stream s1"></div>
-                            <div class="security-stream s2"></div>
-                            <div class="security-stream s3"></div>
-                            <div class="security-stream s4"></div>
-                            
-                            <!-- 3D Shield layers -->
-                            <div class="shield-3d-container">
-                                <div class="shield-layer-3d l1" style="--z: 0px;"></div>
-                                <div class="shield-layer-3d l2" style="--z: 20px;"></div>
-                                <div class="shield-layer-3d l3" style="--z: 40px;"></div>
-                                <div class="shield-layer-3d l4" style="--z: 60px;"></div>
+                        <!-- Clean Security Shield Visualization -->
+                        <div class="security-visual-clean">
+                            <div class="shield-layers">
+                                <!-- Concentric square layers -->
+                                <div class="shield-layer sl1"></div>
+                                <div class="shield-layer sl2"></div>
+                                <div class="shield-layer sl3"></div>
+                                <div class="shield-layer sl4"></div>
                                 
-                                <!-- Center badge -->
-                                <div class="shield-center-badge">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <!-- Center gold badge -->
+                                <div class="shield-badge-center">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                                         <path d="M9 12l2 2 4-4"/>
                                     </svg>
                                 </div>
+                                
+                                <!-- Corner security nodes -->
+                                <div class="security-node sn1">🛡️</div>
+                                <div class="security-node sn2">✓</div>
+                                <div class="security-node sn3">🔒</div>
+                                <div class="security-node sn4">✓</div>
+                                
+                                <!-- Pulsing dots -->
+                                <div class="pulse-dot pd1"></div>
+                                <div class="pulse-dot pd2"></div>
+                                <div class="pulse-dot pd3"></div>
+                                <div class="pulse-dot pd4"></div>
                             </div>
-                            
-                            <!-- Corner certifications -->
-                            <div class="corner-cert ct">🛡️</div>
-                            <div class="corner-cert cr">✓</div>
-                            <div class="corner-cert cb">🔒</div>
-                            <div class="corner-cert cl">✓</div>
                         </div>
                     </div>
                 </div>
@@ -2865,71 +2691,65 @@
         </section>
 
         <!-- ==========================================
-             SLIDE 10: PRICING REALITY
+             SLIDE 10: PRICING REALITY (OFFICIAL)
         ========================================== -->
         <section class="slide" data-slide="10">
             <div class="slide-content">
-                <span class="section-badge">Total Cost of Ownership</span>
-                <h2 class="gradient-text">The Pricing Reality</h2>
+                <span class="section-badge">Pricing Comparison</span>
+                <h2 class="gradient-text">The Hidden Cost Trap</h2>
                 
                 <div class="two-col" style="margin-top: 40px;">
                     <div>
                         <div class="feature-card" style="border-color: var(--airtable-blue);">
-                            <h3 style="color: var(--airtable-blue-light);">Airtable Pricing Model</h3>
-                            <ul style="list-style: none; padding: 0; margin-top: 16px;">
-                                <li style="padding: 12px 0; border-bottom: 1px solid var(--border-subtle); display: flex; justify-content: space-between;">
-                                    <span>Team Plan</span>
-                                    <span class="highlight">$20/user/month</span>
-                                </li>
-                                <li style="padding: 12px 0; border-bottom: 1px solid var(--border-subtle); display: flex; justify-content: space-between;">
-                                    <span>Business Plan</span>
-                                    <span class="highlight">$45/user/month</span>
-                                </li>
-                                <li style="padding: 12px 0; display: flex; justify-content: space-between;">
-                                    <span>Enterprise</span>
-                                    <span class="highlight">Custom</span>
-                                </li>
-                            </ul>
+                            <h3 style="color: var(--airtable-blue-light);">Airtable</h3>
+                            <div style="font-size: 2.5rem; font-weight: 700; margin: 16px 0;">$20<span style="font-size: 1rem; color: var(--text-muted);">/user/month</span></div>
+                            <p style="font-size: 0.9rem; color: var(--text-secondary);">Entry tier</p>
+                            
                             <div style="margin-top: 20px; padding: 16px; background: rgba(32, 201, 151, 0.1); border-radius: 8px;">
                                 <strong style="color: var(--success);">✓ Unlimited read-only users FREE</strong>
-                                <p style="margin: 8px 0 0; font-size: 0.9rem;">Form submissions, share links, and view-only access at no cost</p>
+                                <p style="margin: 8px 0 0; font-size: 0.85rem;">Form submissions and share links at no charge</p>
                             </div>
                         </div>
                     </div>
                     
                     <div>
                         <div class="feature-card" style="opacity: 0.8;">
-                            <h3 style="color: #F06A6A;">Asana Pricing Model</h3>
-                            <ul style="list-style: none; padding: 0; margin-top: 16px;">
-                                <li style="padding: 12px 0; border-bottom: 1px solid var(--border-subtle); display: flex; justify-content: space-between;">
-                                    <span>Starter Plan</span>
-                                    <span>$10.99/user/month</span>
-                                </li>
-                                <li style="padding: 12px 0; border-bottom: 1px solid var(--border-subtle); display: flex; justify-content: space-between;">
-                                    <span>Advanced Plan</span>
-                                    <span>$24.99/user/month</span>
-                                </li>
-                                <li style="padding: 12px 0; display: flex; justify-content: space-between;">
-                                    <span>Enterprise</span>
-                                    <span>Custom</span>
-                                </li>
-                            </ul>
+                            <h3 style="color: #F06A6A;">Asana</h3>
+                            <div style="font-size: 2.5rem; font-weight: 700; margin: 16px 0;">$10.99<span style="font-size: 1rem; color: var(--text-muted);">/user/month</span></div>
+                            <p style="font-size: 0.9rem; color: var(--text-secondary);">Looks cheaper, but...</p>
+                            
                             <div style="margin-top: 20px; padding: 16px; background: rgba(239, 68, 68, 0.1); border-radius: 8px;">
-                                <strong style="color: var(--danger);">⚠ Charges for most collaborators</strong>
-                                <p style="margin: 8px 0 0; font-size: 0.9rem;">Including commenters and viewers</p>
+                                <strong style="color: var(--danger);">⚠ Charges for nearly ALL collaborators</strong>
+                                <p style="margin: 8px 0 0; font-size: 0.85rem;">Including commenters</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 
                 <div class="verdict-card" style="margin-top: 30px;">
-                    <h3>Hidden Cost Example</h3>
-                    <p style="margin: 0;">
-                        <strong>Scenario:</strong> 10 active managers + 20 stakeholders (view/comment)<br><br>
-                        <span class="highlight">Airtable:</span> 10 paid seats = <strong>~$200/month</strong><br>
-                        <span style="color: #F06A6A;">Asana:</span> 30 paid seats = <strong>~$330/month</strong>
+                    <h3 style="margin-bottom: 16px;">Real-World Example</h3>
+                    <p style="margin: 0; font-size: 1.1rem;">
+                        <strong>Scenario:</strong> 10 active project managers + 20 stakeholders (view dashboards & provide feedback)
+                    </p>
+                    <div style="display: flex; justify-content: center; gap: 60px; margin-top: 20px;">
+                        <div style="text-align: center;">
+                            <div style="font-size: 0.9rem; color: var(--airtable-blue-light); margin-bottom: 8px;">Airtable</div>
+                            <div style="font-size: 2rem; font-weight: 700; color: var(--success);">10 seats</div>
+                        </div>
+                        <div style="font-size: 2rem; color: var(--text-muted);">vs</div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 0.9rem; color: #F06A6A; margin-bottom: 8px;">Asana</div>
+                            <div style="font-size: 2rem; font-weight: 700; color: var(--danger);">30 seats</div>
+                        </div>
+                    </div>
+                    <p style="margin-top: 16px; font-size: 0.9rem; color: var(--text-muted);">
+                        Potentially doubling your annual costs
                     </p>
                 </div>
+                
+                <p style="margin-top: 20px; font-size: 0.75rem; color: var(--text-muted); text-align: center;">
+                    Source: airtable.com/airtable-vs-asana
+                </p>
             </div>
         </section>
 
@@ -3001,78 +2821,224 @@
         </section>
 
         <!-- ==========================================
-             SLIDE 12: DATA LAKE INTEGRATION
+             SLIDE 12: DATA LAKE INTEGRATION (PREMIUM V2)
         ========================================== -->
         <section class="slide" data-slide="12">
             <div class="slide-content">
-                <div style="text-align: center;">
+                <div style="text-align: center; margin-bottom: 5px;">
                     <span class="section-badge">Data Architecture</span>
                     <h2 class="gradient-text">Data Lake Integration</h2>
-                    <p>From operational data to enterprise analytics</p>
+                    <p style="margin: 0;">From operational data to enterprise analytics</p>
                 </div>
                 
-                <!-- 3D Funnel Data Lake Visualization -->
-                <div class="data-funnel-visual">
-                    <div class="funnel-container">
-                        <!-- Source labels -->
-                        <div class="funnel-source fs1">
-                            <div class="funnel-source-icon">📄</div>
-                            <span>Content</span>
+                <!-- Premium Data Lake Visualization V2 -->
+                <div class="data-lake-premium">
+                    <!-- Left: Data Tables -->
+                    <div class="data-tables-stack">
+                        <div class="data-table-visual t1">
+                            <div class="table-glow"></div>
                         </div>
-                        <div class="funnel-source fs2">
-                            <div class="funnel-source-icon">🏷️</div>
-                            <span>Metadata</span>
+                        <div class="data-table-visual t2">
+                            <div class="table-glow"></div>
                         </div>
-                        <div class="funnel-source fs3">
-                            <div class="funnel-source-icon">👥</div>
-                            <span>Teams</span>
+                        <div class="data-table-visual t3">
+                            <div class="table-glow"></div>
                         </div>
-                        <div class="funnel-source fs4">
-                            <div class="funnel-source-icon">📊</div>
-                            <span>Analytics</span>
-                        </div>
-                        <div class="funnel-source fs5">
-                            <div class="funnel-source-icon">🔗</div>
-                            <span>APIs</span>
-                        </div>
-                        <div class="funnel-source fs6">
-                            <div class="funnel-source-icon">⚡</div>
-                            <span>Events</span>
-                        </div>
-                        
-                        <!-- Funnel rings (3D ellipses) -->
-                        <div class="funnel-ring r1"></div>
-                        <div class="funnel-ring r2"></div>
-                        <div class="funnel-ring r3"></div>
-                        <div class="funnel-ring r4"></div>
-                        <div class="funnel-ring r5"></div>
-                        
-                        <!-- SVG connection lines -->
-                        <svg class="funnel-lines" viewBox="0 0 300 220">
-                            <line class="funnel-line" x1="30" y1="20" x2="150" y2="200"/>
-                            <line class="funnel-line" x1="70" y1="20" x2="150" y2="200"/>
-                            <line class="funnel-line" x1="150" y1="10" x2="150" y2="200"/>
-                            <line class="funnel-line" x1="230" y1="20" x2="150" y2="200"/>
-                            <line class="funnel-line" x1="270" y1="20" x2="150" y2="200"/>
+                    </div>
+                    
+                    <!-- Center: Flowing Streams -->
+                    <div class="flow-streams-container">
+                        <svg class="flow-streams-svg" viewBox="0 0 500 400" preserveAspectRatio="none">
+                            <defs>
+                                <!-- Main stream gradient -->
+                                <linearGradient id="streamGradMain" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" stop-color="#18BFFF" stop-opacity="0.9"/>
+                                    <stop offset="50%" stop-color="#2D7FF9" stop-opacity="1"/>
+                                    <stop offset="100%" stop-color="#18BFFF" stop-opacity="0.7"/>
+                                </linearGradient>
+                                
+                                <!-- Strong glow filter -->
+                                <filter id="streamGlow" x="-100%" y="-100%" width="300%" height="300%">
+                                    <feGaussianBlur stdDeviation="6" result="blur"/>
+                                    <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+                                </filter>
+                                
+                                <filter id="particleGlow" x="-200%" y="-200%" width="500%" height="500%">
+                                    <feGaussianBlur stdDeviation="4" result="blur"/>
+                                    <feMerge>
+                                        <feMergeNode in="blur"/>
+                                        <feMergeNode in="blur"/>
+                                        <feMergeNode in="SourceGraphic"/>
+                                    </feMerge>
+                                </filter>
+                            </defs>
+                            
+                            <!-- Stream 1: Top curve -->
+                            <path class="stream-path main" 
+                                  d="M 0 60 C 80 60, 120 80, 180 100 S 280 130, 340 150 Q 400 170, 500 180"
+                                  stroke-dasharray="600" style="animation: stream1Anim 5s ease-in-out infinite;"/>
+                            
+                            <!-- Stream 2: Middle main flow (thicker) -->
+                            <path class="stream-path main" 
+                                  d="M 0 200 C 100 200, 150 210, 220 220 S 320 230, 400 220 Q 450 210, 500 200"
+                                  stroke-dasharray="600" style="stroke-width: 7; animation: stream2Anim 4s ease-in-out infinite;"/>
+                            
+                            <!-- Stream 3: Bottom curve -->
+                            <path class="stream-path main" 
+                                  d="M 0 340 C 80 340, 120 310, 180 280 S 280 240, 340 220 Q 400 200, 500 195"
+                                  stroke-dasharray="600" style="animation: stream3Anim 4.5s ease-in-out infinite;"/>
+                            
+                            <!-- Animated particles on streams -->
+                            <circle class="flow-particle large" r="8" filter="url(#particleGlow)">
+                                <animateMotion dur="4s" repeatCount="indefinite" rotate="auto">
+                                    <mpath href="#motionPath1"/>
+                                </animateMotion>
+                            </circle>
+                            <path id="motionPath1" d="M 0 60 C 80 60, 120 80, 180 100 S 280 130, 340 150 Q 400 170, 500 180" fill="none"/>
+                            
+                            <circle class="flow-particle gold large" r="10" filter="url(#particleGlow)">
+                                <animateMotion dur="3.5s" repeatCount="indefinite" rotate="auto" begin="0.5s">
+                                    <mpath href="#motionPath2"/>
+                                </animateMotion>
+                            </circle>
+                            <path id="motionPath2" d="M 0 200 C 100 200, 150 210, 220 220 S 320 230, 400 220 Q 450 210, 500 200" fill="none"/>
+                            
+                            <circle class="flow-particle" r="7" filter="url(#particleGlow)">
+                                <animateMotion dur="4.2s" repeatCount="indefinite" rotate="auto" begin="1s">
+                                    <mpath href="#motionPath3"/>
+                                </animateMotion>
+                            </circle>
+                            <path id="motionPath3" d="M 0 340 C 80 340, 120 310, 180 280 S 280 240, 340 220 Q 400 200, 500 195" fill="none"/>
+                            
+                            <!-- Extra floating particles -->
+                            <circle class="flow-particle" cx="150" cy="150" r="5" filter="url(#particleGlow)">
+                                <animate attributeName="cx" values="100;200;100" dur="5s" repeatCount="indefinite"/>
+                                <animate attributeName="cy" values="140;170;140" dur="5s" repeatCount="indefinite"/>
+                                <animate attributeName="opacity" values="0;1;1;0" dur="5s" repeatCount="indefinite"/>
+                            </circle>
+                            <circle class="flow-particle gold" cx="300" cy="250" r="6" filter="url(#particleGlow)">
+                                <animate attributeName="cx" values="250;350;250" dur="4s" repeatCount="indefinite"/>
+                                <animate attributeName="cy" values="240;260;240" dur="4s" repeatCount="indefinite"/>
+                                <animate attributeName="opacity" values="0;1;1;0" dur="4s" repeatCount="indefinite"/>
+                            </circle>
                         </svg>
                         
-                        <!-- Falling particles -->
-                        <div class="funnel-particle cyan p1"></div>
-                        <div class="funnel-particle blue p2"></div>
-                        <div class="funnel-particle gold p3"></div>
-                        <div class="funnel-particle cyan p4"></div>
-                        <div class="funnel-particle blue p5"></div>
-                        <div class="funnel-particle gold p6"></div>
-                        
-                        <!-- Output stream -->
-                        <div class="funnel-output"></div>
-                        
-                        <!-- Data Lake destination -->
-                        <div class="funnel-lake">
-                            <div class="lake-icon-funnel">🗄️</div>
-                            <div class="lake-text">Data Lake</div>
-                            <div class="lake-subtext">Enterprise Analytics</div>
+                        <style>
+                            @keyframes stream1Anim {
+                                0% { stroke-dashoffset: 600; opacity: 0.7; }
+                                50% { stroke-dashoffset: 0; opacity: 1; }
+                                100% { stroke-dashoffset: -600; opacity: 0.7; }
+                            }
+                            @keyframes stream2Anim {
+                                0% { stroke-dashoffset: 600; opacity: 0.8; }
+                                50% { stroke-dashoffset: 0; opacity: 1; }
+                                100% { stroke-dashoffset: -600; opacity: 0.8; }
+                            }
+                            @keyframes stream3Anim {
+                                0% { stroke-dashoffset: 600; opacity: 0.6; }
+                                50% { stroke-dashoffset: 0; opacity: 1; }
+                                100% { stroke-dashoffset: -600; opacity: 0.6; }
+                            }
+                        </style>
+                    </div>
+                    
+                    <!-- Right: Data Lake Bowl -->
+                    <div class="lake-bowl-container">
+                        <!-- Analytics Panel -->
+                        <div class="analytics-cloud">
+                            <div class="chart-bars">
+                                <div class="chart-bar"></div>
+                                <div class="chart-bar"></div>
+                                <div class="chart-bar"></div>
+                                <div class="chart-bar"></div>
+                                <div class="chart-bar"></div>
+                            </div>
+                            <div class="trend-line-container">
+                                <svg viewBox="0 0 45 25">
+                                    <path d="M 3 20 L 12 14 L 22 17 L 32 6 L 42 10" 
+                                          fill="none" stroke="#D4A84B" stroke-width="2.5" stroke-linecap="round"/>
+                                    <circle cx="42" cy="10" r="3" fill="#D4A84B"/>
+                                </svg>
+                            </div>
+                            <div class="mini-chart">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="#4CAF50" stroke-width="2">
+                                    <rect x="3" y="10" width="4" height="10" rx="1" fill="#4CAF50"/>
+                                    <rect x="10" y="6" width="4" height="14" rx="1" fill="#2196F3"/>
+                                    <rect x="17" y="3" width="4" height="17" rx="1" fill="#FF5722"/>
+                                </svg>
+                            </div>
                         </div>
+                        
+                        <!-- Lake Bowl SVG -->
+                        <svg class="lake-bowl-svg" viewBox="0 0 300 300">
+                            <defs>
+                                <linearGradient id="bowlGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#18BFFF" stop-opacity="0.15"/>
+                                    <stop offset="40%" stop-color="#2D7FF9" stop-opacity="0.35"/>
+                                    <stop offset="100%" stop-color="#0a1628" stop-opacity="0.9"/>
+                                </linearGradient>
+                                <linearGradient id="bowlStroke" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#18BFFF" stop-opacity="1"/>
+                                    <stop offset="100%" stop-color="#2D7FF9" stop-opacity="0.5"/>
+                                </linearGradient>
+                                <filter id="bowlGlow">
+                                    <feGaussianBlur stdDeviation="3" result="blur"/>
+                                    <feMerge>
+                                        <feMergeNode in="blur"/>
+                                        <feMergeNode in="SourceGraphic"/>
+                                    </feMerge>
+                                </filter>
+                            </defs>
+                            
+                            <!-- Bowl rim (top ellipse) -->
+                            <ellipse cx="150" cy="80" rx="130" ry="35" 
+                                     fill="none" stroke="url(#bowlStroke)" stroke-width="3" filter="url(#bowlGlow)"/>
+                            
+                            <!-- Bowl body -->
+                            <path d="M 20 80 Q 20 200, 150 230 Q 280 200, 280 80" 
+                                  fill="url(#bowlGrad)" stroke="url(#bowlStroke)" stroke-width="2.5"/>
+                            
+                            <!-- Water surface with waves -->
+                            <ellipse cx="150" cy="90" rx="115" ry="28" fill="rgba(24, 191, 255, 0.1)"/>
+                            
+                            <!-- Animated water ripples -->
+                            <ellipse cx="150" cy="90" rx="100" ry="24" fill="none" stroke="rgba(24, 191, 255, 0.5)" stroke-width="1.5">
+                                <animate attributeName="rx" values="80;110;80" dur="4s" repeatCount="indefinite"/>
+                                <animate attributeName="ry" values="18;26;18" dur="4s" repeatCount="indefinite"/>
+                                <animate attributeName="opacity" values="0.6;0.2;0.6" dur="4s" repeatCount="indefinite"/>
+                            </ellipse>
+                            <ellipse cx="150" cy="90" rx="70" ry="18" fill="none" stroke="rgba(24, 191, 255, 0.4)" stroke-width="1">
+                                <animate attributeName="rx" values="50;85;50" dur="3.5s" repeatCount="indefinite"/>
+                                <animate attributeName="ry" values="12;22;12" dur="3.5s" repeatCount="indefinite"/>
+                                <animate attributeName="opacity" values="0.5;0.1;0.5" dur="3.5s" repeatCount="indefinite"/>
+                            </ellipse>
+                            <ellipse cx="150" cy="90" rx="45" ry="12" fill="none" stroke="rgba(24, 191, 255, 0.3)" stroke-width="1">
+                                <animate attributeName="rx" values="30;60;30" dur="3s" repeatCount="indefinite"/>
+                                <animate attributeName="ry" values="8;16;8" dur="3s" repeatCount="indefinite"/>
+                                <animate attributeName="opacity" values="0.4;0.1;0.4" dur="3s" repeatCount="indefinite"/>
+                            </ellipse>
+                            
+                            <!-- Inner wave lines -->
+                            <path d="M 50 105 Q 100 95, 150 105 T 250 105" fill="none" stroke="rgba(24, 191, 255, 0.3)" stroke-width="1.5">
+                                <animate attributeName="d" 
+                                         values="M 50 105 Q 100 95, 150 105 T 250 105;M 50 105 Q 100 115, 150 105 T 250 105;M 50 105 Q 100 95, 150 105 T 250 105" 
+                                         dur="3s" repeatCount="indefinite"/>
+                            </path>
+                            <path d="M 60 125 Q 105 115, 150 125 T 240 125" fill="none" stroke="rgba(24, 191, 255, 0.2)" stroke-width="1">
+                                <animate attributeName="d" 
+                                         values="M 60 125 Q 105 115, 150 125 T 240 125;M 60 125 Q 105 135, 150 125 T 240 125;M 60 125 Q 105 115, 150 125 T 240 125" 
+                                         dur="2.5s" repeatCount="indefinite"/>
+                            </path>
+                            <path d="M 75 145 Q 112 138, 150 145 T 225 145" fill="none" stroke="rgba(24, 191, 255, 0.15)" stroke-width="1">
+                                <animate attributeName="d" 
+                                         values="M 75 145 Q 112 138, 150 145 T 225 145;M 75 145 Q 112 152, 150 145 T 225 145;M 75 145 Q 112 138, 150 145 T 225 145" 
+                                         dur="2.8s" repeatCount="indefinite"/>
+                            </path>
+                            
+                            <!-- Labels -->
+                            <text x="150" y="265" text-anchor="middle" fill="#18BFFF" font-size="16" font-weight="700" letter-spacing="3">DATA LAKE</text>
+                            <text x="150" y="285" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="11">Enterprise Analytics</text>
+                        </svg>
                     </div>
                 </div>
             </div>
@@ -3249,57 +3215,60 @@
         </section>
 
         <!-- ==========================================
-             SLIDE 15: THE VERDICT
+             SLIDE 15: THE VERDICT (OFFICIAL)
         ========================================== -->
         <section class="slide" data-slide="15">
             <div class="slide-content">
                 <div style="text-align: center;">
                     <span class="section-badge">Conclusion</span>
-                    <h2 class="gradient-text" style="font-size: 2.5rem;">The Verdict</h2>
+                    <h2 class="gradient-text" style="font-size: 2.2rem;">Break Free From Rigid Task Management</h2>
                 </div>
                 
                 <div class="verdict-card" style="margin-top: 40px;">
                     <div class="verdict-icon">⬡</div>
-                    <div class="verdict-title">Airtable is the Strategic Choice</div>
+                    <div class="verdict-title">Join 500,000+ Organizations</div>
                     <div class="verdict-text">
-                        For enterprise environments with multiple teams, complex workflows, and data-driven operations, 
-                        <strong>Airtable provides the foundation</strong> for a unified, scalable, and flexible work platform.
+                        Go beyond task management and enable strategy. Unlike Asana, Airtable creates a 
+                        <strong>source of truth</strong> linking every team's work to company OKRs with customizable 
+                        views and real-time portfolio visibility—all powered by AI that understands your business.
                     </div>
                 </div>
                 
                 <div class="features-grid" style="margin-top: 40px;">
                     <div class="feature-card" style="text-align: center;">
+                        <div style="font-size: 2rem; margin-bottom: 12px;">🎯</div>
+                        <div class="feature-title">Single Source of Truth</div>
+                        <div class="feature-desc">Customized views for every stakeholder</div>
+                    </div>
+                    <div class="feature-card" style="text-align: center;">
                         <div style="font-size: 2rem; margin-bottom: 12px;">📊</div>
-                        <div class="feature-title">Data-First</div>
-                        <div class="feature-desc">Relational database at core, not an afterthought</div>
+                        <div class="feature-title">Complete Visibility</div>
+                        <div class="feature-desc">Connect projects to business data</div>
                     </div>
                     <div class="feature-card" style="text-align: center;">
-                        <div style="font-size: 2rem; margin-bottom: 12px;">🔗</div>
-                        <div class="feature-title">Connected</div>
-                        <div class="feature-desc">Single source of truth for all teams</div>
+                        <div style="font-size: 2rem; margin-bottom: 12px;">🤖</div>
+                        <div class="feature-title">AI-Powered</div>
+                        <div class="feature-desc">AI that learns your workflows</div>
                     </div>
                     <div class="feature-card" style="text-align: center;">
-                        <div style="font-size: 2rem; margin-bottom: 12px;">📈</div>
-                        <div class="feature-title">Scalable</div>
-                        <div class="feature-desc">100M records, enterprise-grade infrastructure</div>
-                    </div>
-                    <div class="feature-card" style="text-align: center;">
-                        <div style="font-size: 2rem; margin-bottom: 12px;">💰</div>
-                        <div class="feature-title">Cost-Effective</div>
-                        <div class="feature-desc">Unlimited free viewers and stakeholders</div>
+                        <div style="font-size: 2rem; margin-bottom: 12px;">⚡</div>
+                        <div class="feature-title">Automation at Scale</div>
+                        <div class="feature-desc">Sync across every tool in your stack</div>
                     </div>
                 </div>
                 
                 <div style="text-align: center; margin-top: 40px;">
-                    <a href="https://airtable.com" target="_blank" class="btn btn-primary">
-                        Explore Airtable
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                            <polyline points="15 3 21 3 21 9"/>
-                            <line x1="10" y1="14" x2="21" y2="3"/>
-                        </svg>
+                    <a href="https://airtable.com/signup" target="_blank" class="btn btn-primary" style="margin-right: 16px;">
+                        Get Started Free
+                    </a>
+                    <a href="https://airtable.com/contact-sales" target="_blank" class="btn" style="background: transparent; border: 1px solid var(--airtable-blue);">
+                        Book Demo
                     </a>
                 </div>
+                
+                <p style="margin-top: 24px; font-size: 0.75rem; color: var(--text-muted); text-align: center;">
+                    Source: airtable.com/airtable-vs-asana
+                </p>
             </div>
         </section>
 
